@@ -1,7 +1,10 @@
+package main.java;
+
 import java.util.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.io.*;
+import main.java.stemmer.*;
 
 public class Main{
 
@@ -14,7 +17,6 @@ public class Main{
             lines =
                     Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
         }
-
 
         catch (IOException e)
         {
@@ -38,10 +40,17 @@ public class Main{
         for (int i = 0; i < listOfFiles.length; i++) {
             List<String> tempList = readFileInList(pathToFile+listOfFiles[i].getName());
             String[] temp=tempList.get(0).split(" ");
+            PorterStemmer porterStemmer = new PorterStemmer();
+            for (int j = 0; j < temp.length; j++) {
+                temp[j] = porterStemmer.stem(temp[j]);
+            }
+            for (int j = 0; j < temp.length; j++) {
+                temp[j] = temp[j].toUpperCase();
+            }
             for (int j = 0; j < temp.length; j++) {
                 if(dataSet.containsKey(temp[j])){
                     if(dataSet.get(temp[j]).containsKey(i))
-                     dataSet.get(temp[j]).put(i,dataSet.get(temp[j]).get(i)+1);
+                        dataSet.get(temp[j]).put(i,dataSet.get(temp[j]).get(i)+1);
                     else
                         dataSet.get(temp[j]).put(i,1);
                 }
@@ -55,6 +64,7 @@ public class Main{
 
         System.out.println("Enter input word:");
         String key = scanner.nextLine();
+        key = key.toUpperCase();
         String[] keys = key.split(" ");
         ArrayList<Integer> result = new ArrayList<>();
         boolean f = true;
@@ -62,6 +72,8 @@ public class Main{
             if (keys[i].startsWith("+")) {
                 f = false;
                 HashMap<Integer, Integer> temp = dataSet.get(keys[i].replaceFirst("\\+", ""));
+                if(temp.isEmpty())
+                    System.out.println("key does not exist!");
                 for (Map.Entry<Integer, Integer> mapElement : temp.entrySet()) {
                     Integer k = mapElement.getKey();
                     if (!result.contains(k))
@@ -74,18 +86,21 @@ public class Main{
         for (int i = 0; i < keys.length; i++) {
             if((!(keys[i].startsWith("+")))&&(!(keys[i].startsWith("-")))){
                 HashMap<Integer, Integer> temp = dataSet.get(keys[i]);
+                if(temp.isEmpty())
+                    System.out.println("key does not exist!");
+                else{
                 if(flag){
                     for (Map.Entry<Integer, Integer> mapElement : temp.entrySet()) {
                         Integer k = mapElement.getKey();
-                            R1.add(k);
+                        R1.add(k);
                     }
                     flag = false;
                 }
                 else{
-                for (int j = 0; j < R1.size(); j++) {
-                    if(!temp.containsKey(R1.get(j)))
-                        R1.remove(j);
-                }}
+                    for (int j = 0; j < R1.size(); j++) {
+                        if(!temp.containsKey(R1.get(j)))
+                            R1.remove(j);
+                    }}}
             }
 
         }
@@ -93,12 +108,14 @@ public class Main{
         for (int i = 0; i < keys.length; i++) {
             if(keys[i].startsWith("-")){
                 HashMap<Integer, Integer> temp = dataSet.get(keys[i].replaceFirst("\\-",""));
+                if(temp.isEmpty())
+                    System.out.println("key does not exist!");
                 for (Map.Entry<Integer, Integer> mapElement : temp.entrySet()) {
                     Integer k = mapElement.getKey();
                     if(!keysToDelete.contains(k))
                         keysToDelete.add(k);
-            }
-        }}
+                }
+            }}
         ArrayList<Integer> R2 = new ArrayList<>();
         for (int i = 0; i < R1.size(); i++) {
             if(result.contains(R1.get(i))||f)
@@ -109,7 +126,7 @@ public class Main{
                 R2.remove(keysToDelete.get(i));
         }
         for (int i = 0; i < R2.size(); i++) {
-                System.out.println(R2.get(i));
+            System.out.println(R2.get(i));
         }
     }
 
