@@ -20,7 +20,7 @@ public class Search {
         deleteKeys(keysToDelete, result);
         return result;
     }
-    private static Boolean handlePlus(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromPlusMethod) {
+    private Boolean handlePlus(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromPlusMethod) {
         boolean flag1 = true;
         for (String key : keys) {
             if (key.startsWith("+")) {
@@ -34,7 +34,7 @@ public class Search {
         return !flag1;
     }
 
-    private static void traverseHashMap(ArrayList<Integer> result, HashMap<Integer, Integer> hashMapToTraverse) {
+    private void traverseHashMap(ArrayList<Integer> result, HashMap<Integer, Integer> hashMapToTraverse) {
         for (Map.Entry<Integer, Integer> mapElement : hashMapToTraverse.entrySet()) {
             Integer k = mapElement.getKey();
             if (!result.contains(k))
@@ -42,7 +42,7 @@ public class Search {
         }
     }
 
-    private static boolean handleBare(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromBareMethod) {
+    private boolean handleBare(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromBareMethod) {
         boolean isEverUsed = false;
         boolean flag2 = true;
         for (String key : keys) {
@@ -68,20 +68,24 @@ public class Search {
         return isEverUsed;
     }
 
-    private static ArrayList<Integer> handleMinus(ReadAble dataSet, String[] keys) {
+    private ArrayList<Integer> handleMinus(ReadAble dataSet, String[] keys) {
         ArrayList<Integer> keysToDelete = new ArrayList<>();
         for (String key : keys) {
-            if (key.startsWith("-")) {
-                HashMap<Integer, Integer> temp = dataSet.read(key.replaceFirst("-", ""));
-                if (temp == null)
-                    continue;
-                traverseHashMap(keysToDelete, temp);
-            }
+            startWithMinusHandler(dataSet, keysToDelete, key);
         }
         return keysToDelete;
     }
 
-    private static ArrayList<Integer> combineResults(boolean isPlusEverUsed,boolean isEverUsed, ArrayList<Integer> resultFromPlusMethod, ArrayList<Integer> resultFromBareMethod, int size) {
+    private void startWithMinusHandler(ReadAble dataSet, ArrayList<Integer> keysToDelete, String key) {
+        if (key.startsWith("-")) {
+            HashMap<Integer, Integer> temp = dataSet.read(key.replaceFirst("-", ""));
+            if (temp == null)
+                return;
+            traverseHashMap(keysToDelete, temp);
+        }
+    }
+
+    private ArrayList<Integer> combineResults(boolean isPlusEverUsed,boolean isEverUsed, ArrayList<Integer> resultFromPlusMethod, ArrayList<Integer> resultFromBareMethod, int size) {
         ArrayList<Integer> result = new ArrayList<>();
 
         if((!isEverUsed)&&(!isPlusEverUsed))
@@ -101,13 +105,14 @@ public class Search {
 
         return result;
     }
-    private static void deleteKeys(ArrayList<Integer> keysToDelete, ArrayList<Integer> result) {
+
+    private void deleteKeys(ArrayList<Integer> keysToDelete, ArrayList<Integer> result) {
         for (Integer integer : keysToDelete) {
             result.remove(integer);
         }
     }
 
-    private static void addAllToResults(ArrayList<Integer> results, int size){
+    private void addAllToResults(ArrayList<Integer> results, int size){
         for (int i = 0; i < size; i++) {
             results.add(i);
         }

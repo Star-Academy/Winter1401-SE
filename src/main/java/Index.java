@@ -7,35 +7,31 @@ import java.util.Collections;
 import java.util.List;
 
 public class Index {
+    private final FileAble fileHandler;
+    private final String pathToFile;
+    private final main.java.stemmer.PorterStemmer porterStemmer = new main.java.stemmer.PorterStemmer();
 
-    String pathToFile;
-    File folder;
-    File[] listOfFiles;
-
-    public Index(String pathToFile) {
+    public Index(String pathToFile, FileAble fileAble) {
         this.pathToFile = pathToFile;
-        this.folder = new File(pathToFile);
-        this.listOfFiles = folder.listFiles();
+        this.fileHandler = fileAble;
     }
 
-    void makeDataSet(WriteAble dataSet) {
-        handleEmptyFolder(listOfFiles);
-        for (int i = 0; i < listOfFiles.length; i++) {
-            List<String> tempList = readFileInList(pathToFile + listOfFiles[i].getName());
-            if (!tempList.isEmpty()){
-                String[] listOfTermsInCurrentFile = tempList.get(0).split(" ");
-                main.java.stemmer.PorterStemmer porterStemmer = new main.java.stemmer.PorterStemmer();
-                stem(listOfTermsInCurrentFile, porterStemmer);
-                toUpper(listOfTermsInCurrentFile);
-                dataSet.write(listOfTermsInCurrentFile,i);
+    public void makeDataSet(WriteAble dataSet) {
+        handleEmptyFolder(fileHandler.getListOfFiles());
+        for (int i = 0; i < fileHandler.getListOfFiles().length; i++) {
+            List<String> tempList = readFileInList(pathToFile + fileHandler.getListOfFiles()[i].getName());
+            if (tempList.isEmpty()){
+                continue;
+            }
+            String[] listOfTermsInCurrentFile = tempList.get(0).split(" ");
+            for (int j = 0; j < listOfTermsInCurrentFile.length; j++) {
+                listOfTermsInCurrentFile[j] = stem(listOfTermsInCurrentFile[j]);
+                listOfTermsInCurrentFile[j] = listOfTermsInCurrentFile[j].toUpperCase();
+                dataSet.write(listOfTermsInCurrentFile[j], i);
             }
         }
     }
-    private void toUpper(String[] listOfTermsInCurrentFile) {
-        for (int j = 0; j < listOfTermsInCurrentFile.length; j++) {
-            listOfTermsInCurrentFile[j] = listOfTermsInCurrentFile[j].toUpperCase();
-        }
-    }
+
     public List<String> readFileInList(String fileName)
     {
 
@@ -50,23 +46,21 @@ public class Index {
         {
             e.printStackTrace();
         }
-        for (int i = 0; i < lines.size(); i++) {
-            lines.set(i,lines.get(i).toUpperCase());
-        }
         return lines;
     }
-    private void stem(String[] stringsToStem, main.java.stemmer.PorterStemmer porterStemmer) {
-        for (int j = 0; j < stringsToStem.length; j++) {
-            stringsToStem[j] = porterStemmer.stem(stringsToStem[j]);
-        }
+
+    private String stem(String stringToStem) {
+            return porterStemmer.stem(stringToStem);
     }
+
     private static void handleEmptyFolder(File[] listOfFiles) {
         if(listOfFiles == null){
             System.out.println("Given directory is empty!!");
             System.exit(0);
         }
     }
+
     public int getNumberOfFiles(){
-        return listOfFiles.length;
+        return fileHandler.getListOfFiles().length;
     }
 }
