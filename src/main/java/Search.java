@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Search {
-    public ArrayList<Integer> searchKey(String key, ReadAble dataSet, int numberOfFiles){
+    public ArrayList<Integer> searchKey(String key, ReadAble dataSet, int numberOfFiles) {
         key = key.toUpperCase();
         String[] keys = key.split(" ");
 
@@ -20,16 +20,18 @@ public class Search {
         deleteKeys(keysToDelete, result);
         return result;
     }
+
     private Boolean handlePlus(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromPlusMethod) {
         boolean flag1 = true;
         for (String key : keys) {
-            if (key.startsWith("+")) {
-                flag1 = false;
-                HashMap<Integer, Integer> temp = dataSet.read(key.replaceFirst("\\+", ""));
-                if (temp == null)
-                    continue;
-                traverseHashMap(resultFromPlusMethod, temp);
+            if (!key.startsWith("+")) {
+                continue;
             }
+            flag1 = false;
+            HashMap<Integer, Integer> temp = dataSet.read(key.replaceFirst("\\+", ""));
+            if (temp == null)
+                continue;
+            traverseHashMap(resultFromPlusMethod, temp);
         }
         return !flag1;
     }
@@ -42,30 +44,38 @@ public class Search {
         }
     }
 
+    //This should be corrected
     private boolean handleBare(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromBareMethod) {
         boolean isEverUsed = false;
         boolean flag2 = true;
         for (String key : keys) {
-            if ((!(key.startsWith("+"))) && (!(key.startsWith("-")))) {
-                isEverUsed = true;
-                HashMap<Integer, Integer> temp = dataSet.read(key);
-                if (temp == null){
-                    System.out.println("key does not exist!");
-                    System.exit(0);}
-                else {
-                    if (flag2) {
-                        traverseHashMap(resultFromBareMethod, temp);
-                        flag2 = false;
-                    } else {
-                        for (int j = 0; j < resultFromBareMethod.size(); j++) {
-                            if (!temp.containsKey(resultFromBareMethod.get(j)))
-                                resultFromBareMethod.remove(j);
-                        }
-                    }
-                }
+            if (!startsWithNothing(key)) {
+                continue;
+            }
+            isEverUsed = true;
+            HashMap<Integer, Integer> temp = dataSet.read(key);
+            if (temp == null) {
+                System.out.println("key does not exist!");
+                System.exit(0);
+            }
+            else {
+                flag2 = handleNotEmpty(resultFromBareMethod, flag2, temp);
             }
         }
         return isEverUsed;
+    }
+
+    private boolean handleNotEmpty(ArrayList<Integer> resultFromBareMethod, boolean flag2, HashMap<Integer, Integer> temp) {
+        if (flag2) {
+            traverseHashMap(resultFromBareMethod, temp);
+            flag2 = false;
+        } else {
+            for (int j = 0; j < resultFromBareMethod.size(); j++) {
+                if (!temp.containsKey(resultFromBareMethod.get(j)))
+                    resultFromBareMethod.remove(j);
+            }
+        }
+        return flag2;
     }
 
     private ArrayList<Integer> handleMinus(ReadAble dataSet, String[] keys) {
@@ -85,16 +95,16 @@ public class Search {
         }
     }
 
-    private ArrayList<Integer> combineResults(boolean isPlusEverUsed,boolean isEverUsed, ArrayList<Integer> resultFromPlusMethod, ArrayList<Integer> resultFromBareMethod, int size) {
+    private ArrayList<Integer> combineResults(boolean isPlusEverUsed, boolean isEverUsed, ArrayList<Integer> resultFromPlusMethod, ArrayList<Integer> resultFromBareMethod, int size) {
         ArrayList<Integer> result = new ArrayList<>();
 
-        if((!isEverUsed)&&(!isPlusEverUsed))
+        if ((!isEverUsed) && (!isPlusEverUsed))
             addAllToResults(result, size);
 
-        else if(isEverUsed&&!isPlusEverUsed)
+        else if (isEverUsed && !isPlusEverUsed)
             result.addAll(resultFromBareMethod);
 
-        else if(!isEverUsed)
+        else if (!isEverUsed)
             result.addAll(resultFromPlusMethod);
 
         else
@@ -112,9 +122,13 @@ public class Search {
         }
     }
 
-    private void addAllToResults(ArrayList<Integer> results, int size){
+    private void addAllToResults(ArrayList<Integer> results, int size) {
         for (int i = 0; i < size; i++) {
             results.add(i);
         }
+    }
+
+    private boolean startsWithNothing(String key) {
+        return (!(key.startsWith("+"))) && (!(key.startsWith("-")));
     }
 }

@@ -10,7 +10,7 @@ public class Main{
 
         DataSet dataSet = new DataSet();
 
-        Index index = new Index(pathToFile, new FileHandler(pathToFile));
+        Index index = new Index(new FileHandler(pathToFile));
         index.makeDataSet(dataSet);
 
         System.out.println("Enter input word:");

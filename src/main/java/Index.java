@@ -8,27 +8,30 @@ import java.util.List;
 
 public class Index {
     private final FileAble fileHandler;
-    private final String pathToFile;
     private final main.java.stemmer.PorterStemmer porterStemmer = new main.java.stemmer.PorterStemmer();
 
-    public Index(String pathToFile, FileAble fileAble) {
-        this.pathToFile = pathToFile;
+    public Index(FileAble fileAble) {
         this.fileHandler = fileAble;
     }
 
     public void makeDataSet(WriteAble dataSet) {
         handleEmptyFolder(fileHandler.getListOfFiles());
         for (int i = 0; i < fileHandler.getListOfFiles().length; i++) {
-            List<String> tempList = readFileInList(pathToFile + fileHandler.getListOfFiles()[i].getName());
+            List<String> tempList = readFileInList(fileHandler.getFileName(i));
             if (tempList.isEmpty()){
                 continue;
             }
-            String[] listOfTermsInCurrentFile = tempList.get(0).split(" ");
-            for (int j = 0; j < listOfTermsInCurrentFile.length; j++) {
-                listOfTermsInCurrentFile[j] = stem(listOfTermsInCurrentFile[j]);
-                listOfTermsInCurrentFile[j] = listOfTermsInCurrentFile[j].toUpperCase();
-                dataSet.write(listOfTermsInCurrentFile[j], i);
-            }
+            addToDataSet(dataSet, i, tempList);
+        }
+    }
+
+    private void addToDataSet(WriteAble dataSet, int i, List<String> tempList) {
+        String[] listOfTermsInCurrentFile = tempList.get(0).split(" ");
+        for (String currentTerm : listOfTermsInCurrentFile) {
+            var item = currentTerm;
+            item = stem(item);
+            item = item.toUpperCase();
+            dataSet.write(item, i);
         }
     }
 
