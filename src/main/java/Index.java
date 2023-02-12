@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -15,14 +14,17 @@ public class Index {
     }
 
     public void makeDataSet(WriteAble dataSet) {
-        handleEmptyFolder(fileHandler.getListOfFiles());
+        boolean isEmpty = true;
         for (int i = 0; i < fileHandler.getListOfFiles().length; i++) {
+            isEmpty = false;
             List<String> tempList = readFileInList(fileHandler.getFileName(i));
             if (tempList.isEmpty()){
                 continue;
             }
             addToDataSet(dataSet, i, tempList);
         }
+        if(isEmpty)
+            handleEmptyFolder();
     }
 
     private void addToDataSet(WriteAble dataSet, int i, List<String> tempList) {
@@ -56,11 +58,9 @@ public class Index {
             return porterStemmer.stem(stringToStem);
     }
 
-    private static void handleEmptyFolder(File[] listOfFiles) {
-        if(listOfFiles == null){
+    private static void handleEmptyFolder() {
             System.out.println("Given directory is empty!!");
             System.exit(0);
-        }
     }
 
     public int getNumberOfFiles(){

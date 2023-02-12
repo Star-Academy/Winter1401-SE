@@ -2,12 +2,15 @@ import java.io.File;
 
 public class FileHandler implements FileAble{
     private final String pathToFile;
-    private final File folder;
-    private final File[] listOfFiles;
+    private File[] listOfFiles;
 
     public FileHandler(String pathToFile) {
         this.pathToFile = pathToFile;
-        this.folder = new File(pathToFile);
+        initialize();
+    }
+
+    private void initialize(){
+        File folder = new File(pathToFile);
         this.listOfFiles = folder.listFiles();
     }
 
