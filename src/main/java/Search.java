@@ -44,38 +44,49 @@ public class Search {
         }
     }
 
-    //This should be corrected
     private boolean handleBare(ReadAble dataSet, String[] keys, ArrayList<Integer> resultFromBareMethod) {
         boolean isEverUsed = false;
-        boolean flag2 = true;
+        boolean isFirstTime = true;
         for (String key : keys) {
             if (!startsWithNothing(key)) {
                 continue;
             }
             isEverUsed = true;
-            HashMap<Integer, Integer> temp = dataSet.read(key);
-            if (temp == null) {
-                System.out.println("key does not exist!");
-                System.exit(0);
-            }
-            else {
-                flag2 = handleNotEmpty(resultFromBareMethod, flag2, temp);
-            }
+            isFirstTime = handleEachTerm(dataSet, resultFromBareMethod, isFirstTime, key);
         }
         return isEverUsed;
     }
 
-    private boolean handleNotEmpty(ArrayList<Integer> resultFromBareMethod, boolean flag2, HashMap<Integer, Integer> temp) {
-        if (flag2) {
-            traverseHashMap(resultFromBareMethod, temp);
-            flag2 = false;
-        } else {
-            for (int j = 0; j < resultFromBareMethod.size(); j++) {
-                if (!temp.containsKey(resultFromBareMethod.get(j)))
-                    resultFromBareMethod.remove(j);
-            }
+    private boolean handleEachTerm(ReadAble dataSet, ArrayList<Integer> resultFromBareMethod, boolean isFirstTime, String key) {
+        HashMap<Integer, Integer> currentTermFiles = dataSet.read(key);
+        if (currentTermFiles == null) {
+            handleEmptyList();
         }
-        return flag2;
+        else {
+            isFirstTime = handleNotEmpty(resultFromBareMethod, isFirstTime, currentTermFiles);
+        }
+        return isFirstTime;
+    }
+
+    private static void handleEmptyList() {
+        System.out.println("key does not exist!");
+        System.exit(0);
+    }
+
+    private boolean handleNotEmpty(ArrayList<Integer> resultFromBareMethod, boolean isFirstTime, HashMap<Integer, Integer> temp) {
+        if (isFirstTime) {
+            traverseHashMap(resultFromBareMethod, temp);
+        } else {
+            handleNextTimes(resultFromBareMethod, temp);
+        }
+        return false;
+    }
+
+    private static void handleNextTimes(ArrayList<Integer> resultFromBareMethod, HashMap<Integer, Integer> temp) {
+        for (int j = 0; j < resultFromBareMethod.size(); j++) {
+            if (!temp.containsKey(resultFromBareMethod.get(j)))
+                resultFromBareMethod.remove(j);
+        }
     }
 
     private ArrayList<Integer> handleMinus(ReadAble dataSet, String[] keys) {

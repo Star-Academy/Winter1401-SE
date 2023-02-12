@@ -18,6 +18,6 @@ public class FileHandler implements FileAble{
 
     @Override
     public String getFileName(int i){
-        return listOfFiles[i].getName()+pathToFile;
+        return pathToFile+listOfFiles[i].getName();
     }
 }
