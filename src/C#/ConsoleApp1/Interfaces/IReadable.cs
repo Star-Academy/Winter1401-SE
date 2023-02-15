@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1;
+﻿namespace ConsoleApp1.Interfaces;
 
 public interface IReadable
 { 

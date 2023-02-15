@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp1;
+﻿using ConsoleApp1.Interfaces;
+
+namespace ConsoleApp1;
 
 public class Manager
 {
@@ -17,28 +19,28 @@ public class Manager
 
     public void Run(string pathToScores, string pathToInfo)
     {
-        List<StudentPersonalInfo> studentPersonalInfos = _readable.Read<StudentPersonalInfo>(pathToInfo);
+        var studentPersonalInfos = _readable.Read<StudentPersonalInfo>(pathToInfo);
         
-        List<StudentEduInfo> studentEduInfos = _readable.Read<StudentEduInfo>(pathToScores);
+        var studentEduInfos = _readable.Read<StudentEduInfo>(pathToScores);
 
-        List<StudentAverage> averages = _calculator.Calculate(studentPersonalInfos, studentEduInfos);
+        var averages = _calculator.Calculate(studentPersonalInfos, studentEduInfos);
 
         averages = _process.Process(averages);
 
-        List<string> bestStudents = ExtractBestStudents(studentPersonalInfos, averages);
+        var bestStudents = ExtractBestStudents(studentPersonalInfos, averages);
 
         _outPut.OutPut(bestStudents);
     }
 
-    private List<string> ExtractBestStudents(List<StudentPersonalInfo> studentPersonalInfo,
-        List<StudentAverage> studentAverages)
+    private List<StudentFullInfo> ExtractBestStudents(List<StudentPersonalInfo> studentPersonalInfo,
+        List<StudentFullInfo> studentAverages)
     {
-        List<String> bestStudents = new List<string>();
-        int numberOfBestStudents = InputStNumber(studentPersonalInfo.Count);
-
-        for (int i = 0; i < numberOfBestStudents; i++)
+        var bestStudents = new List<StudentFullInfo>();
+        var numberOfBestStudents = InputStNumber(studentPersonalInfo.Count);
+        
+        for (var i = 0; i < numberOfBestStudents; i++)
         {
-            string currentStudentString = ExtractStudentInfo(studentPersonalInfo, studentAverages, i);
+            var currentStudentString = ExtractStudentInfo(studentPersonalInfo, studentAverages, i);
             bestStudents.Add(currentStudentString);
         }
         return bestStudents;
@@ -48,24 +50,20 @@ public class Manager
     {
         Console.WriteLine("How many Best Student do you want?");
         var stNum = Console.ReadLine();
-        int n = Convert.ToInt32(stNum);
-        if (maxSize < n)
-        {
-            Console.WriteLine("There is fewer number of students than you want!!");
-            n = InputStNumber(maxSize);
-        }
+        var n = Convert.ToInt32(stNum);
+        if (maxSize >= n) return n;
+        Console.WriteLine("There is fewer number of students than you want!!");
+        n = InputStNumber(maxSize);
         return n;
     }
 
-    private string ExtractStudentInfo(List<StudentPersonalInfo> studentPersonalInfo,
-        List<StudentAverage> studentAverages, int currentId)
+    private StudentFullInfo ExtractStudentInfo(List<StudentPersonalInfo> studentPersonalInfo,
+        List<StudentFullInfo> studentAverages, int currentId)
     {
-        int currentStudentId = studentAverages.ElementAt(currentId).StudentId;
-        StudentPersonalInfo currentStudentPersonalInfo =
+        var currentStudentId = studentAverages[currentId].StudentPersonalInfo!.StudentNumber;
+        var currentStudentPersonalInfo =
             studentPersonalInfo.Single(x => x.StudentNumber == currentStudentId);
-        string currentStudentString = currentStudentPersonalInfo.FirstName + " " +
-                                      currentStudentPersonalInfo.LastName + "    " +
-                                      studentAverages.ElementAt(currentId).Average;
-        return currentStudentString;
+        var currentStudentFullInfo = new StudentFullInfo(currentStudentPersonalInfo, studentAverages[currentId].Average);
+        return currentStudentFullInfo;
     }
 }

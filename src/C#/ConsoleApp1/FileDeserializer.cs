@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1;
 

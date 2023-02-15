@@ -1,10 +1,11 @@
-﻿namespace ConsoleApp1;
+﻿using ConsoleApp1.Interfaces;
+
+namespace ConsoleApp1;
 
 public class Sort : IPreProcess
 {
-    public List<StudentAverage> Process(List<StudentAverage> studentAverages)
+    public List<StudentFullInfo> Process(IEnumerable<StudentFullInfo> studentAverages)
     {
-        studentAverages = studentAverages.OrderByDescending(x => x.Average).ToList();
-        return studentAverages;
+       return studentAverages.OrderByDescending(x => x.Average).ToList();
     }
 }

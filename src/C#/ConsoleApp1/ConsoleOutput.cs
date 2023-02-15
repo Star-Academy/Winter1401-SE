@@ -1,12 +1,14 @@
-﻿namespace ConsoleApp1;
+﻿using ConsoleApp1.Interfaces;
+
+namespace ConsoleApp1;
 
 public class ConsoleOutput : IOutPut
 {
-    public void OutPut(List<string> stringsToPrint)
+    public void OutPut(List<StudentFullInfo> studentsToPrint)
     {
-        for (int i = 0; i < stringsToPrint.Count; i++)
+        foreach (var t in studentsToPrint)
         {
-            Console.WriteLine(stringsToPrint.ElementAt(i));
+            Console.WriteLine(t.StudentPersonalInfo!.FirstName + " " + t.StudentPersonalInfo.LastName + "    " + t.Average);
         }
     }
 }
