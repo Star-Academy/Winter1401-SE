@@ -2,5 +2,5 @@
 
 public interface IPreProcess
 {
-    public Dictionary<TKey, TK> Process<TKey, TK>(Dictionary<TKey, TK> dictionary) where TKey : notnull;
+    public List<StudentAverage> Process(List<StudentAverage> studentAverages);
 }

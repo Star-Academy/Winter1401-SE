@@ -2,5 +2,5 @@
 
 public interface IOutPut
 {
-    public void OutPut(Dictionary<int, double> averages, List<StudentPersonalInfo> studentPersonalInfos);
+    public void OutPut(List<string> stringsToPrint);
 }

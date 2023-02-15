@@ -2,7 +2,7 @@
 
 namespace ConsoleApp1;
 
-public class FileHandler : IReadable
+public class FileDeserializer : IReadable
 {
     public List<T> Read<T>(string whereToReadFrom)
     {

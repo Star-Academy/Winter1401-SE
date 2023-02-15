@@ -2,15 +2,11 @@
 
 public class ConsoleOutput : IOutPut
 {
-    public void OutPut(Dictionary<int, double> averages, List<StudentPersonalInfo> studentPersonalInfos)
+    public void OutPut(List<string> stringsToPrint)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < stringsToPrint.Count; i++)
         {
-            int currentStudentId = averages.ElementAt(i).Key;
-            StudentPersonalInfo currentStudentPersonalInfo =
-                studentPersonalInfos.Single(x => x.StudentNumber == currentStudentId);
-            Console.WriteLine(currentStudentPersonalInfo.FirstName + " " + currentStudentPersonalInfo.LastName + "    " +
-                              averages.ElementAt(i).Value);
+            Console.WriteLine(stringsToPrint.ElementAt(i));
         }
     }
 }

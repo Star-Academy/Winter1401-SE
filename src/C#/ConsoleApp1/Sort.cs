@@ -2,9 +2,9 @@
 
 public class Sort : IPreProcess
 {
-    public Dictionary<TKey, TK> Process<TKey, TK>(Dictionary<TKey, TK> dictionary) where TKey : notnull
+    public List<StudentAverage> Process(List<StudentAverage> studentAverages)
     {
-        dictionary = dictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-        return dictionary;
+        studentAverages = studentAverages.OrderByDescending(x => x.Average).ToList();
+        return studentAverages;
     }
 }

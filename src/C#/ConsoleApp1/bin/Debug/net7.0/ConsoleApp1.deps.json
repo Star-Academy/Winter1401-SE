@@ -31,7 +31,11 @@
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {},
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {
+        "dependencies": {
+          "Microsoft.NETFramework.ReferenceAssemblies.net461": "1.0.3"
+        }
+      },
       "Microsoft.NETFramework.ReferenceAssemblies.net461/1.0.3": {},
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
@@ -696,11 +700,6 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
-      },
-      "ConsoleApp2/1.0.0": {
-        "runtime": {
-          "ConsoleApp2.dll": {}
-        }
       }
     }
   },
@@ -1241,11 +1240,6 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
-    },
-    "ConsoleApp2/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }
