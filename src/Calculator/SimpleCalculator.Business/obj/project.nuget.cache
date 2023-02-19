@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "J70B1UG0zn1xst5RfuL0r7hmDsbUiA61/vjmnzt+RE9RZpC2OlXr+zkTeXVnv+7xPXHioYRI8ALDxriShnUiGw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator.Business\\SimpleCalculator.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}
