@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8X2FsT1G/x06Bob0RJgFTwBhFNV+483hZkBDPuVBRRvu9rqkLtoQVu6Ug3m746ujGIGjFwyMVzhW0wEkF52tTg==",
+  "dgSpecHash": "pis0LNyeBcSWwpP1GyL/MPPuZ/3HF6Ii4MHbSPgpEeVoNspx5akEaQm7xzjQ4+U3lBsWo6iwvyGJtH4G5hveKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\TestProject\\TestProject.csproj",
+  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\TestProject\\TestProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

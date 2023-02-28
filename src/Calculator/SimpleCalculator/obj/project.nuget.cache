@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nigWOJZJuIqCcDqOhU+ANPDN9E6pDLIKY7PbvMaGzHF2wV0fFSaxMK5zaijFd10u9qAbTTAIWHR4mUnXz+Xn6A==",
+  "dgSpecHash": "QMQD0nTubhzA5OOm5/2sZgETzUD3tr9OfTBC+j07sM1aocu5ZAn/9CeqKlNCrkrfUGuQptJ+5LGDT2zQhZT/0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator\\SimpleCalculator.Console.csproj",
+  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\SimpleCalculator\\SimpleCalculator.Console.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",

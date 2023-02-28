@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SimpleCalculator.Business
-build_property.ProjectDir = C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SimpleCalculator\SimpleCalculator.Business\
+build_property.ProjectDir = C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\Calculator\SimpleCalculator.Business\

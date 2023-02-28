@@ -1,0 +1,17 @@
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.csproj.AssemblyReference.cache
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.AssemblyInfoInputs.cache
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.AssemblyInfo.cs
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.csproj.CoreCompileInputs.cache
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\SampleLibrary.deps.json
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\SampleLibrary.runtimeconfig.json
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\SampleLibrary.dll
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\bin\Debug\net7.0\SampleLibrary.pdb
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.dll
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\refint\SampleLibrary.dll
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.pdb
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\SampleLibrary.genruntimeconfig.cache
+C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary\obj\Debug\net7.0\ref\SampleLibrary.dll

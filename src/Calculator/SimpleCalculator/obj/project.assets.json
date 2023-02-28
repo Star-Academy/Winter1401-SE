@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator\\SimpleCalculator.Console.csproj",
+      "projectUniqueName": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\SimpleCalculator\\SimpleCalculator.Console.csproj",
       "projectName": "SimpleCalculator.Console",
-      "projectPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator\\SimpleCalculator.Console.csproj",
+      "projectPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\SimpleCalculator\\SimpleCalculator.Console.csproj",
       "packagesPath": "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator\\obj\\",
+      "outputPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\SimpleCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mahdi.mohammadi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,8 +51,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator.Business\\SimpleCalculator.Business.csproj": {
-              "projectPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SimpleCalculator\\SimpleCalculator.Business\\SimpleCalculator.Business.csproj"
+            "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\SimpleCalculator.Business\\SimpleCalculator.Business.csproj": {
+              "projectPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\Calculator\\SimpleCalculator.Business\\SimpleCalculator.Business.csproj"
             }
           }
         }
