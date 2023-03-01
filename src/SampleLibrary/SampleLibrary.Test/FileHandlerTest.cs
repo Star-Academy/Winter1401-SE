@@ -24,8 +24,8 @@ public class FileHandlerTest
         
         
         Assert.True(listOfFiles[0]==fileHandler.GetFileName(0)||listOfFiles[0]==fileHandler.GetFileName(1));
-        Assert.True(listOfFiles[1]==fileHandler.GetFileName(0)||listOfFiles[1]==fileHandler.GetFileName(1))
-        
+        Assert.True(listOfFiles[1] == fileHandler.GetFileName(0) || listOfFiles[1] == fileHandler.GetFileName(1));
+
     }
 
 }
