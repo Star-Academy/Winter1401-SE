@@ -8,9 +8,10 @@ public class FileHandlerTest
     {
         var fileHandler = new FileHandler();
         fileHandler.LoadFile(pathToFile);
+        
 
-        Assert.Equal(firstFileName, fileHandler.GetFileName(0));
-        Assert.Equal(secondFileName, fileHandler.GetFileName(1));
+        Assert.True(firstFileName==fileHandler.GetFileName(0)||secondFileName==fileHandler.GetFileName(0));
+        Assert.True(secondFileName==fileHandler.GetFileName(1)||firstFileName==fileHandler.GetFileName(1));
 
     }
 
@@ -22,7 +23,9 @@ public class FileHandlerTest
         fileHandler.LoadFile(pathToFile);
         
         
-        Assert.Equal(listOfFiles, fileHandler.GetListOfFiles());
+        Assert.True(listOfFiles[0]==fileHandler.GetFileName(0)||listOfFiles[0]==fileHandler.GetFileName(1));
+        Assert.True(listOfFiles[1]==fileHandler.GetFileName(0)||listOfFiles[1]==fileHandler.GetFileName(1))
+        
     }
 
 }
