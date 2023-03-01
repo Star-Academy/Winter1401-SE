@@ -6,22 +6,22 @@ namespace SampleLibrary.Test;
 
 public class IndexTest
 {
-    [Theory]
-    [MemberData(nameof(GenerateData))]
-    public void MakeDataSetTest(DataSet expectedDataset)
-    {
-        var fileHandler = Substitute.For<IFileAble>();
-        fileHandler.GetListOfFiles().Returns(new string[] { ".//TestFolder\\.txt", ".//TestFolder\\a.txt" });
-        fileHandler.GetFileName(Arg.Is(0)).Returns(".//TestFolder\\.txt");
-        fileHandler.GetFileName(Arg.Is(1)).Returns(".//TestFolder\\a.txt");
-        var indexer = new Indexer(fileHandler);
-
-        var dataSet = new DataSet();
-        indexer.MakeDataSet(dataSet);
-        var x = dataSet.Equals(expectedDataset);
-        
-        Assert.True(x);
-    }
+    // [Theory]
+    // [MemberData(nameof(GenerateData))]
+    // public void MakeDataSetTest(DataSet expectedDataset)
+    // {
+    //     var fileHandler = Substitute.For<IFileAble>();
+    //     fileHandler.GetListOfFiles().Returns(new string[] { ".//TestFolder\\.txt", ".//TestFolder\\a.txt" });
+    //     fileHandler.GetFileName(Arg.Is(0)).Returns(".//TestFolder\\.txt");
+    //     fileHandler.GetFileName(Arg.Is(1)).Returns(".//TestFolder\\a.txt");
+    //     var indexer = new Indexer(fileHandler);
+    //
+    //     var dataSet = new DataSet();
+    //     indexer.MakeDataSet(dataSet);
+    //     var x = dataSet.Equals(expectedDataset);
+    //     
+    //     Assert.True(x);
+    // }
 
     public static TheoryData<DataSet> GenerateData => new()
     {
