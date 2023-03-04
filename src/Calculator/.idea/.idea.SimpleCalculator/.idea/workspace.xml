@@ -5,36 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f605cfd-2928-4b7d-8535-8fdc36cdc0d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/Debug/net6.0/SimpleCalculator.Business.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/Debug/net6.0/SimpleCalculator.Business.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/Debug/net6.0/SimpleCalculator.Business.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/Debug/net6.0/SimpleCalculator.Business.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/SimpleCalculator.Business.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/SimpleCalculator.Business.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.Business/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.Business/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/Debug/net6.0/SimpleCalculator.Console.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/Debug/net6.0/SimpleCalculator.Console.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/Debug/net6.0/SimpleCalculator.Console.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/Debug/net6.0/SimpleCalculator.Console.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/Debug/net6.0/SimpleCalculator.Console.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/Debug/net6.0/SimpleCalculator.Console.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/SimpleCalculator.Console.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/SimpleCalculator.Console.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimpleCalculator/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleCalculator/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/bin/Debug/net7.0/CoverletSourceRootsMapping" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/bin/Debug/net7.0/CoverletSourceRootsMapping" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/Debug/net7.0/TestProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/Debug/net7.0/TestProject.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/Debug/net7.0/TestProject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/Debug/net7.0/TestProject.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/Debug/net7.0/TestProject.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/Debug/net7.0/TestProject.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/TestProject.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/TestProject.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleCalculator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleCalculator/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MMnCR3cv6q9SoQoINwNqPYKqGB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,14 +23,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SimpleCalculator.Console" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -79,6 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1677586190957</updated>
       <workItem from="1677586198712" duration="29000" />
+      <workItem from="1677910653056" duration="265000" />
+      <workItem from="1677910999822" duration="47000" />
     </task>
     <servers />
   </component>
@@ -87,6 +70,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
