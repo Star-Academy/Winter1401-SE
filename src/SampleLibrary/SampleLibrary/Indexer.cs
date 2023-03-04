@@ -1,11 +1,12 @@
 ﻿using Iveonik.Stemmers;
 using SampleLibrary.Interfaces;
+using Xunit.Sdk;
 
 namespace SampleLibrary;
 
 public class Indexer: IDataSetMaker
 {
-    private IFileAble _fileAble;
+    private readonly IFileAble _fileAble;
 
     public Indexer(IFileAble fileAble)
     {
@@ -14,17 +15,17 @@ public class Indexer: IDataSetMaker
 
     public DataSet MakeDataSet(IWriteAble dataSet)
     {
-        var isEmpty = true;
+        var isFolderEmpty = true;
         dataSet.SetNumberOfFiles(_fileAble.GetListOfFiles().Length);
         for (var i = 0; i < _fileAble.GetListOfFiles().Length; i++)
         {
-            isEmpty = false;
+            isFolderEmpty = false;
             var currentFileTerms = File.ReadAllText(_fileAble.GetFileName(i)).Split(" ");
             if(currentFileTerms.Length==0)
                 continue;
             AddToDataSet(i, dataSet, currentFileTerms);
         }
-        if (isEmpty)
+        if (isFolderEmpty)
             HandleEmptyFolder();
         var result = (DataSet)dataSet;
         return result;
@@ -33,8 +34,7 @@ public class Indexer: IDataSetMaker
     private void HandleEmptyFolder()
     {
         var output = new ConsoleInput();
-        output.OutPut("Entered Directory is Empty!!");
-        System.Environment.Exit(0);
+        throw new EmptyException("Entered Directory is Empty!!");
     }
 
     private void AddToDataSet(int index, IWriteAble dataSet, string[] listOfTerms)

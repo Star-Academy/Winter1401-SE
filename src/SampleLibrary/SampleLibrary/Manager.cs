@@ -50,9 +50,9 @@ public class Manager
         return key;
     }
 
-    private void PrintFinalResult(string? key, DataSet dataSet)
+    private void PrintFinalResult(string? key, IReadAble dataSet)
     {
-        foreach (var item in new Search().SearchKey(key!, dataSet))
+        foreach (var item in new Search(dataSet).SearchKey(key!))
         {
             PrintMessage(_outPut, item.ToString());
         }

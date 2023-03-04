@@ -14,7 +14,7 @@ public class SearchTest
               2,
               new DataSet()
               {
-                  _dataset =
+                  Dataset =
                   {
                       { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
                       { "J", new Dictionary<int, int>() { { 0, 1 } } },
@@ -31,7 +31,7 @@ public class SearchTest
               2,
               new DataSet()
               {
-                  _dataset =
+                  Dataset =
                   {
                       { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
                       { "J", new Dictionary<int, int>() { { 0, 1 } } },
@@ -48,7 +48,7 @@ public class SearchTest
             2,
             new DataSet()
             {
-                _dataset =
+                Dataset =
                 {
                     {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
                     { "ALI", new Dictionary<int, int>() { { 1, 0 } } },
@@ -66,8 +66,8 @@ public class SearchTest
     [MemberData(nameof(GenerateBareData))]
     public void Search_BareWords_Should_Return_True(string key, int numberOfFiles, DataSet dataSet, List<int> expectedResult)
     {
-        var search = new Search();
-        var expected = search.SearchKey(key, dataSet);
+        var search = new Search(dataSet);
+        var expected = search.SearchKey(key);
         
         var x = expected.SequenceEqual(expectedResult);
         x.Should().BeTrue();
@@ -81,7 +81,7 @@ public class SearchTest
             2,
             new DataSet()
             {
-                _dataset =
+                Dataset =
                 {
                     { "ALI", new Dictionary<int, int>() { { 1, 0 } } },
                     { "J", new Dictionary<int, int>() { { 1, 0 } } },
@@ -90,7 +90,23 @@ public class SearchTest
                 }
             },
             new List<int> { 0, 1 }
-        };  
+        };
+        yield return new object[]
+        {
+            "haji hello",
+            2,
+            new DataSet()
+            {
+                Dataset =
+                {
+                    { "ALI", new Dictionary<int, int>() { { 1, 0 } } },
+                    { "J", new Dictionary<int, int>() { { 1, 0 } } },
+                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
+                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
+                }
+            },
+            new List<int> {  }
+        };
     }
 
     [Theory]
@@ -98,8 +114,8 @@ public class SearchTest
     public void Search_AbsentKeys_Should_Return_Exception(string key, int numberOfFiles, DataSet dataSet,
         List<int> expectedResult)
     {
-        var search = new Search();
-        var action = () => search.SearchKey(key, dataSet);
+        var search = new Search(dataSet);
+        var action = () => search.SearchKey(key);
         
         Assert.Throws<KeyNotFoundException>(action);
     }
@@ -112,7 +128,7 @@ public class SearchTest
             2,
             new DataSet()
             {
-                _dataset =
+                Dataset =
                 {
                     {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
                     { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
@@ -130,8 +146,8 @@ public class SearchTest
     public void SearchKey_PlusWord_Should_Return_true(string key, int numberOfFiles, DataSet dataSet,
         List<int> expectedResult)
     {
-        var search = new Search();
-        var expected = search.SearchKey(key, dataSet);
+        var search = new Search(dataSet);
+        var expected = search.SearchKey(key);
         
         var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
         x.Should().BeTrue();
@@ -141,11 +157,11 @@ public class SearchTest
     {
         yield return new object[]
         {
-            "-yo haji",
+            "-yo haji -hello",
             2,
             new DataSet()
             {
-                _dataset =
+                Dataset =
                 {
                     {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
                     { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
@@ -163,8 +179,8 @@ public class SearchTest
     public void SearchKey_MinusWords_Should_Returns_True(string key, int numberOfFiles, DataSet dataSet,
         List<int> expectedResult)
     {
-        var search = new Search();
-        var expected = search.SearchKey(key, dataSet);
+        var search = new Search(dataSet);
+        var expected = search.SearchKey(key);
         
         var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
         x.Should().BeTrue();
@@ -178,8 +194,8 @@ public class SearchTest
             2,
             new DataSet()
             {
-                _numberOfFiles = 2,
-                _dataset =
+                NumberOfFiles = 2,
+                Dataset =
                 {
                     {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
                     { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
@@ -197,8 +213,42 @@ public class SearchTest
     public void SearchKey_Empty_Should_Return_True(string key, int numberOfFiles, DataSet dataSet,
         List<int> expectedResult)
     {
-        var search = new Search();
-        var expected = search.SearchKey(key, dataSet);
+        var search = new Search(dataSet);
+        var expected = search.SearchKey(key);
+        
+        var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
+        x.Should().BeTrue();
+    }
+    
+    public static IEnumerable<object[]> GeneratePlusBareData()
+    {
+        yield return new object[]
+        {
+            "+ali +j haji +yo",
+            2,
+            new DataSet()
+            {
+                NumberOfFiles = 2,
+                Dataset =
+                {
+                    {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
+                    { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
+                    { "J", new Dictionary<int, int>() { { 0, 1 } } },
+                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
+                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
+                }
+            },
+            new List<int> { 0 , 1 }
+        };  
+    }
+
+    [Theory]
+    [MemberData(nameof(GeneratePlusBareData))]
+    public void SearchKey_Plus_And_Bare_Should_Return_True(string key, int numberOfFiles, DataSet dataSet,
+        List<int> expectedResult)
+    {
+        var search = new Search(dataSet);
+        var expected = search.SearchKey(key);
         
         var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
         x.Should().BeTrue();

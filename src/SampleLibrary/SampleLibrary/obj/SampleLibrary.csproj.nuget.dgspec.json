@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mahdi.mohammadi\\RiderProjects\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj": {}
+    "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mahdi.mohammadi\\RiderProjects\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj": {
+    "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj",
         "projectName": "SampleLibrary",
-        "projectPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj",
+        "projectPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj",
         "packagesPath": "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\SampleLibrary\\SampleLibrary\\obj\\",
+        "outputPath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mahdi.mohammadi\\AppData\\Roaming\\NuGet\\NuGet.Config"

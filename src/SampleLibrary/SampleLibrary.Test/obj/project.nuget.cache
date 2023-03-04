@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J8XuJCk5QMbHAObORg9hcDfxQ9d+a3mE/0KYhw8KzeRmH8nz1tXKmrn7W9chiDPcijhCM2f5ZIEC8w5NLDNoRw==",
+  "dgSpecHash": "D354rJ0+NCtIHgrsMZxfHkPX3ydUdqrC9ZMfoG3OoyUfjNiAzG+JjRFM6HTiHcZthRrWvOI+ozcDMMPrZnMu2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\SampleLibrary\\SampleLibrary.Test\\SampleLibrary.Test.csproj",
+  "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary.Test\\SampleLibrary.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",

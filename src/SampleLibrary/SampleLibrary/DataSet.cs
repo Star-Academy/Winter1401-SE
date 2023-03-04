@@ -4,36 +4,36 @@ namespace SampleLibrary;
 
 public class DataSet : IReadAble, IWriteAble
 {
-    public Dictionary<string, Dictionary<int, int>> _dataset
+    public Dictionary<string, Dictionary<int, int>> Dataset
     {
         set;
         get;
     }
-    public int _numberOfFiles { get; set; }
+    public int NumberOfFiles { get; set; }
 
     public DataSet()
     {
-        _dataset = new Dictionary<string, Dictionary<int, int>>();
+        Dataset = new Dictionary<string, Dictionary<int, int>>();
     }
 
     public void SetNumberOfFiles(int size)
     {
-        _numberOfFiles = size;
+        NumberOfFiles = size;
     }
 
     public int GetNumberOfFiles()
     {
-        return _numberOfFiles;
+        return NumberOfFiles;
     }
     
     public void Write(string key, int numberOfCurrentFile)
     {
-        if (!_dataset.ContainsKey(key))
+        if (!Dataset.ContainsKey(key))
         {
             var temporary = new Dictionary<int, int>();
-            _dataset.Add(key, temporary);
+            Dataset.Add(key, temporary);
         }
-        var countByFiles = _dataset[key];
+        var countByFiles = Dataset[key];
         if(!countByFiles.ContainsKey(numberOfCurrentFile)){
             countByFiles.Add(numberOfCurrentFile, 0);
         }
@@ -42,22 +42,22 @@ public class DataSet : IReadAble, IWriteAble
 
     public Dictionary<int, int> Read(string key)
     {
-        if (!_dataset.ContainsKey(key))
+        if (!Dataset.ContainsKey(key))
             return null;
-        Dictionary<int, int> result = new Dictionary<int, int>();
-        _dataset.TryGetValue(key, out result);
+        var result = new Dictionary<int, int>();
+        Dataset.TryGetValue(key, out result);
         return result;
     }
 
     public bool Equals(DataSet dataSet)
     {
-        if (_dataset.Count != dataSet._dataset.Count)
+        if (Dataset.Count != dataSet.Dataset.Count)
             return false;
-        foreach (var item in dataSet._dataset)
+        foreach (var item in dataSet.Dataset)
         {
-            if(!_dataset.ContainsKey(item.Key))
+            if(!Dataset.ContainsKey(item.Key))
                 return false;
-            bool result = AreEqual(item.Value, _dataset[item.Key]);
+            bool result = AreEqual(item.Value, Dataset[item.Key]);
             if(result)
                continue;
             return false;
@@ -70,6 +70,7 @@ public class DataSet : IReadAble, IWriteAble
     {
         if (first.Count != second.Count)
             return false;
+
         foreach (var item in first)
         {
             if (!(second.ContainsKey(item.Key) && second[item.Key] == item.Value))

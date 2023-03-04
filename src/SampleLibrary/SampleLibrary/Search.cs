@@ -4,67 +4,67 @@ namespace SampleLibrary;
 
 public class Search
 {
-    public List<int> SearchKey(string key, IReadAble dataSet) {
+    private readonly IReadAble _dataSet;
+
+    public Search(IReadAble dataSet)
+    {
+        _dataSet = dataSet;
+    }
+    public List<int> SearchKey(string key) {
         key = key.ToUpper();
         var keys = key.Split(" ");
 
-        var resultFromPlusMethod = new List<int>();
-        var isPlusEverUsed = HandlePlus(dataSet, keys, resultFromPlusMethod);
+        var resultFromPlusMethod = HandlePlus(keys);
+        
+        var resultFromBareMethod = HandleBare(keys);
 
-        var resultFromBareMethod = new List<int>();
-        var isEverUsed = HandleBare(dataSet, keys, resultFromBareMethod);
+        var keysToDelete = HandleMinus(keys);
 
-        var keysToDelete = HandleMinus(dataSet, keys);
+        var result = CombineResults(resultFromPlusMethod, resultFromBareMethod, _dataSet.GetNumberOfFiles());
 
-       var result = CombineResults(isPlusEverUsed, isEverUsed, resultFromPlusMethod, resultFromBareMethod, dataSet.GetNumberOfFiles());
+        result.RemoveAll(x => keysToDelete.Contains(x));
 
-        deleteKeys(keysToDelete, result);
         return result;
     }
 
-    private bool HandlePlus(IReadAble dataSet, String[] keys, List<int> resultFromPlusMethod) {
-        var flag1 = true;
+    private HashSet<int> HandlePlus(string[] keys)
+    {
+        var result = new HashSet<int>();
         foreach (var key in keys) {
             if (!key.StartsWith("+")) {
                 continue;
             }
-            flag1 = false;
             var modifiedKey = key.Substring(1);
-            var temp = dataSet.Read(modifiedKey);
-            if (temp == null)
+            var temp = _dataSet.Read(modifiedKey);
+            if (temp is null)
                 continue;
-            traverseDictionary(resultFromPlusMethod, temp);
+            foreach (var item in temp.Keys)
+            {
+                result.Add(item);
+            }
         }
-        return !flag1;
+        return result;
     }
 
-    private void traverseDictionary(List<int> result, Dictionary<int, int> dictionaryToTraverse) {
-        foreach (var item in dictionaryToTraverse)
-        {
-            if (!result.Contains(item.Key))
-                result.Add(item.Key);
-        }
-    }
-
-    private bool HandleBare(IReadAble dataSet, String[] keys, List<int> resultFromBareMethod) {
-        var isEverUsed = false;
+    private HashSet<int> HandleBare(string[] keys)
+    {
+        var result = new HashSet<int>();
         var isFirstTime = true;
         if (keys.Length == 1 && keys[0] == "")
-            return isEverUsed;
-        foreach (String key in keys) {
-            if (!startsWithNothing(key)) {
+            return result;
+        foreach (var key in keys) {
+            if (!StartsWithNothing(key)) {
                 continue;
             }
-            isEverUsed = true;
-            isFirstTime = HandleEachTerm(dataSet, resultFromBareMethod, isFirstTime, key);
+            isFirstTime = HandleEachTerm(result, isFirstTime, key);
         }
-        return isEverUsed;
+        return result;
     }
 
-    private bool HandleEachTerm(IReadAble dataSet, List<int> resultFromBareMethod, bool isFirstTime, String key) {
-        var currentTermFiles = dataSet.Read(key);
+    private bool HandleEachTerm(HashSet<int> resultFromBareMethod, bool isFirstTime, string key) {
+        var currentTermFiles = _dataSet.Read(key);
         if (currentTermFiles == null) {
-            HandleEmptyList();
+            HandleEmptyList(); 
         }
         else {
             isFirstTime = HandleNotEmpty(resultFromBareMethod, isFirstTime, currentTermFiles);
@@ -79,75 +79,74 @@ public class Search
         throw new KeyNotFoundException("key does not exist!");
     }
 
-    private bool HandleNotEmpty(List<int> resultFromBareMethod, bool isFirstTime, Dictionary<int, int> temp) {
-        if (isFirstTime) {
-            traverseDictionary(resultFromBareMethod, temp);
-        } else {
-            HandleNextTimes(resultFromBareMethod, temp);
+    private bool HandleNotEmpty(HashSet<int> resultFromBareMethod, bool isFirstTime, Dictionary<int, int> temp) {
+        if (isFirstTime)
+        {
+            foreach (var key in temp.Keys)
+            {
+                resultFromBareMethod.Add(key);
+            }
+
+        } else
+        {
+            resultFromBareMethod.RemoveWhere(x => !temp.ContainsKey(x));
         }
         return false;
     }
 
-    private static void HandleNextTimes(List<int> resultFromBareMethod, Dictionary<int, int> temp) {
-        for (var j = 0; j < resultFromBareMethod.Count; j++) {
-            if (!temp.ContainsKey(resultFromBareMethod[j]))
-                resultFromBareMethod.Remove(resultFromBareMethod[j]);
-        }
-    }
-
-    private List<int> HandleMinus(IReadAble dataSet, String[] keys) {
-       var keysToDelete = new List<int>();
-        foreach (String key in keys) {
-            StartWithMinusHandler(dataSet, keysToDelete, key);
+    private HashSet<int> HandleMinus(string[] keys) {
+       var keysToDelete = new HashSet<int>();
+        foreach (var key in keys) {
+            keysToDelete = StartWithMinusHandler(keysToDelete, key);
         }
         return keysToDelete;
     }
 
-    private void StartWithMinusHandler(IReadAble dataSet, List<int> keysToDelete, String key) {
+    private HashSet<int> StartWithMinusHandler(HashSet<int> keysToDelete, string key) {
         if (key.StartsWith("-"))
         {
             var modifiedKey = key.Substring(1);
-            var temp = dataSet.Read(modifiedKey);
+            var temp = _dataSet.Read(modifiedKey);
             if (temp == null)
-                return;
-            traverseDictionary(keysToDelete, temp);
+                return keysToDelete;
+            foreach (var item in temp.Keys)
+            {
+                keysToDelete.Add(item);
+            }
         }
+        return keysToDelete;
     }
 
-    private List<int> CombineResults(bool isPlusEverUsed, bool isEverUsed, List<int> resultFromPlusMethod, List<int> resultFromBareMethod, int size) {
+    private List<int> CombineResults(HashSet<int> resultFromPlusMethod, HashSet<int> resultFromBareMethod, int size) {
         var result = new List<int>();
 
-        if ((!isEverUsed) && (!isPlusEverUsed))
-            addAllToResults(result, size);
+        if ((resultFromPlusMethod.Count is 0) && (resultFromBareMethod.Count is 0))
+            result = AddAllToResults(size);
 
-        else if (isEverUsed && !isPlusEverUsed)
+        else if (resultFromBareMethod.Count is not 0 && resultFromPlusMethod.Count is 0)
             result.AddRange(resultFromBareMethod);
 
-        else if (!isEverUsed)
+        else if (resultFromBareMethod.Count is 0)
             result.AddRange(resultFromPlusMethod);
-
+        
         else
-            foreach (int item in resultFromBareMethod) {
+            foreach (var item in resultFromBareMethod) {
                 if (resultFromPlusMethod.Contains(item))
                     result.Add(item);
             }
-
         return result;
     }
 
-    private void deleteKeys(List<int> keysToDelete, List<int> result) {
-        foreach (var item in keysToDelete) {
-            result.Remove(item);
-        }
-    }
-
-    private void addAllToResults(List<int> results, int size) {
+    private List<int> AddAllToResults(int size)
+    {
+        var results = new List<int>();
         for (var i = 0; i < size; i++) {
             results.Add(i);
         }
+        return results;
     }
 
-    private bool startsWithNothing(String key) {
-        return (!(key.StartsWith("+"))) && (!(key.StartsWith("-")));
+    private bool StartsWithNothing(string key) {
+        return !key.StartsWith("+") && !key.StartsWith("-");
     }
 }

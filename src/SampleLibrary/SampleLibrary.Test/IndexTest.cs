@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NSubstitute;
 using SampleLibrary.Interfaces;
+using Xunit.Sdk;
 
 namespace SampleLibrary.Test;
 
@@ -22,13 +23,25 @@ public class IndexTest
         
         Assert.True(x);
     }
+    
+    [Fact]
+    public void MakeDataSet_EmptyFolder_ThrowsException()
+    {
+        var fileHandler = Substitute.For<IFileAble>();
+        fileHandler.GetListOfFiles().Returns(new string[] { });
+        var indexer = new Indexer(fileHandler);
+
+        var dataSet = new DataSet();
+        var action = () => indexer.MakeDataSet(dataSet);
+        Assert.Throws<EmptyException>(action);
+    }
 
     public static TheoryData<DataSet> GenerateData => new()
     {
         {
             new DataSet()
             {
-                _dataset =
+                Dataset =
                 {
                     {"HAJI", new Dictionary<int, int>(){{0,1}, {1,1}}},
                     {"ALI", new Dictionary<int, int>(){{0, 1}}},
