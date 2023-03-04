@@ -29,3 +29,4 @@ jobs:
             - name: Test
               run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
               working-directory: src/SampleLibrary
+              #
