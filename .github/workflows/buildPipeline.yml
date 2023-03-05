@@ -33,5 +33,5 @@ jobs:
               uses: codecov/codecov-action@v3
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
-                  files: ./Untitled.xml
+                  files: ./**/Untitled.xml
                   fail_ci_if_error: true
