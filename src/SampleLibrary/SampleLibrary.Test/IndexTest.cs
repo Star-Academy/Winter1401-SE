@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using NSubstitute;
 using SampleLibrary.Interfaces;
 using Xunit.Sdk;
@@ -13,8 +14,10 @@ public class IndexTest
     {
         var fileHandler = Substitute.For<IFileAble>();
         fileHandler.GetListOfFiles().Returns(new string[] { ".//TestFolder\\a.txt", ".//TestFolder\\b.txt" });
-        fileHandler.GetFileName(Arg.Is(0)).Returns(".//TestFolder\\a.txt");
-        fileHandler.GetFileName(Arg.Is(1)).Returns(".//TestFolder\\b.txt");
+        var str1 = ".//TestFolder" + $"{Path.DirectorySeparatorChar}" + "a.txt";
+        var str2 = ".//TestFolder" + $"{Path.DirectorySeparatorChar}" + "b.txt";
+        fileHandler.GetFileName(Arg.Is(0)).Returns(str1);
+        fileHandler.GetFileName(Arg.Is(1)).Returns(str2);
         var indexer = new Indexer(fileHandler);
 
         var dataSet = new DataSet();
