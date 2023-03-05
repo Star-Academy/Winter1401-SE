@@ -224,5 +224,5 @@ C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLib
 C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLibrary.Test\obj\Debug\net7.0\SampleLibrary.Test.pdb
 C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLibrary.Test\obj\Debug\net7.0\SampleLibrary.Test.genruntimeconfig.cache
 C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLibrary.Test\obj\Debug\net7.0\ref\SampleLibrary.Test.dll
-C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLibrary.Test\bin\Debug\net7.0\TestFolder\.txt
 C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLibrary.Test\bin\Debug\net7.0\TestFolder\a.txt
+C:\Users\mahdi.mohammadi\RiderProjects\Winter1401-SE\src\SampleLibrary\SampleLibrary.Test\bin\Debug\net7.0\TestFolder\b.txt

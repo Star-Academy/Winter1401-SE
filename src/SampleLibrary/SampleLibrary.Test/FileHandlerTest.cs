@@ -7,7 +7,7 @@ namespace SampleLibrary.Test;
 public class FileHandlerTest
 {
     [Theory]
-    [InlineData(".//TestFolder", ".txt", "a.txt")]
+    [InlineData(".//TestFolder", "a.txt", "b.txt")]
     public void GetFileName_Test(string pathToFile, string firstFileName, string secondFileName)
     {
 
@@ -21,7 +21,7 @@ public class FileHandlerTest
     }
 
     [Theory]
-    [InlineData(".//TestFolder", new string[] { ".txt", "a.txt" })]
+    [InlineData(".//TestFolder", new string[] { "a.txt", "b.txt" })]
     public void LoadFiles_GetFileList_Test(string pathToFile, string[] listOfFiles)
     {
         for (var i=0; i<listOfFiles.Length; i++)
