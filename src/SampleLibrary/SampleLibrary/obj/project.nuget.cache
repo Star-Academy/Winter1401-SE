@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "HjKfaNXXcU0BX2gmpxVgoh5u1T8S1IBiRj82ie0mcbYHfiZP5KtlBLGh6+3nkHVCGp+UD3KiBbmvr4ynDllYpg==",
+  "dgSpecHash": "ajVzirg1iTfwkqSkp8QpUTe8XBnZzltKTmsG84B40xHJvzcZQyf+pCldF06dx/C6UP5cT+1inRjwh4j+1dxMTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary\\SampleLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\fluentassertions\\6.10.0\\fluentassertions.6.10.0.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

@@ -1,6 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary.Test\bin\Debug\net7.0\SampleLibrary.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\mahdi.mohammadi\.nuget\packages\bogus\34.0.2\lib\net6.0\Bogus.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\mahdi.mohammadi\AppData\Local\JetBrains\Rider2022.1\resharper-host\temp\Rider\vAny\CoverageData\_SampleLibrary.243694587\Snapshot\snapshot.utdcvr</s:String>
 	

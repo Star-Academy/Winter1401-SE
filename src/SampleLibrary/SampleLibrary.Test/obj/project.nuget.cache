@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "D354rJ0+NCtIHgrsMZxfHkPX3ydUdqrC9ZMfoG3OoyUfjNiAzG+JjRFM6HTiHcZthRrWvOI+ozcDMMPrZnMu2A==",
+  "dgSpecHash": "vPvs+d/Ugon5+ggBm+fzEdJh1z2c4JFNlBZN/M8d+1qsH1LuQQ55JSJ7vHtZKl3JAwIsdFi3RChAVxdpPkwcvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mahdi.mohammadi\\RiderProjects\\Winter1401-SE\\src\\SampleLibrary\\SampleLibrary.Test\\SampleLibrary.Test.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\mahdi.mohammadi\\.nuget\\packages\\fluentassertions\\6.10.0\\fluentassertions.6.10.0.nupkg.sha512",
