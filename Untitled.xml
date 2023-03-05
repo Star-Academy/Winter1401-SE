@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SolutionRoot CoveredStatements="384" TotalStatements="439" CoveragePercent="87" ReportType="Xml" DotCoverVersion="2022.1.1">
+  <Project Name="SampleLibrary" CoveredStatements="247" TotalStatements="302" CoveragePercent="82">
+    <Namespace Name="SampleLibrary" CoveredStatements="247" TotalStatements="302" CoveragePercent="82">
+      <Type Name="ConsoleInput" CoveredStatements="0" TotalStatements="6" CoveragePercent="0">
+        <Method Name="OutPut(string):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Read():string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+      </Type>
+      <Type Name="DataSet" CoveredStatements="60" TotalStatements="63" CoveragePercent="95">
+        <Constructor Name="DataSet()" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <AutoProperty Name="Dataset:Dictionary&lt;string,Dictionary&lt;int,int&gt;&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="NumberOfFiles:int" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <Method Name="AreEqual(Dictionary&lt;int,int&gt;,Dictionary&lt;int,int&gt;):bool" CoveredStatements="12" TotalStatements="13" CoveragePercent="92" />
+        <Method Name="Equals(DataSet):bool" CoveredStatements="14" TotalStatements="16" CoveragePercent="88" />
+        <Method Name="GetNumberOfFiles():int" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="Read(string):Dictionary&lt;int,int&gt;" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="SetNumberOfFiles(int):void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="Write(string,int):void" CoveredStatements="13" TotalStatements="13" CoveragePercent="100" />
+      </Type>
+      <Type Name="FileHandler" CoveredStatements="6" TotalStatements="9" CoveragePercent="67">
+        <Method Name="GetFileName(int):string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="GetListOfFiles():string[]" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="LoadFile(string):void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+      </Type>
+      <Type Name="Indexer" CoveredStatements="36" TotalStatements="37" CoveragePercent="97">
+        <Constructor Name="Indexer(IFileAble)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="AddToDataSet(int,IWriteAble,string[]):void" CoveredStatements="12" TotalStatements="12" CoveragePercent="100" />
+        <Method Name="HandleEmptyFolder():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="MakeDataSet(IWriteAble):DataSet" CoveredStatements="17" TotalStatements="18" CoveragePercent="94" />
+      </Type>
+      <Type Name="Manager" CoveredStatements="0" TotalStatements="41" CoveragePercent="0">
+        <Constructor Name="Manager(IOutPut,IInput,IDataSetMaker,IFileAble)" CoveredStatements="0" TotalStatements="7" CoveragePercent="0" />
+        <Method Name="GetFolder():void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="GetInputWord():string" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <Method Name="InputPath(IInput):string" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="MakeDataset():DataSet" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="PrintFinalResult(string,IReadAble):void" CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+        <Method Name="PrintMessage(IOutPut,string):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <Method Name="Run():void" CoveredStatements="0" TotalStatements="6" CoveragePercent="0" />
+      </Type>
+      <Type Name="Search" CoveredStatements="145" TotalStatements="146" CoveragePercent="99">
+        <Constructor Name="Search(IReadAble)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        <Method Name="AddAllToResults(int):List&lt;int&gt;" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+        <Method Name="CombineResults(HashSet&lt;int&gt;,HashSet&lt;int&gt;,int):List&lt;int&gt;" CoveredStatements="18" TotalStatements="18" CoveragePercent="100" />
+        <Method Name="HandleBare(string[]):HashSet&lt;int&gt;" CoveredStatements="17" TotalStatements="17" CoveragePercent="100" />
+        <Method Name="HandleEachTerm(HashSet&lt;int&gt;,bool,string):bool" CoveredStatements="10" TotalStatements="11" CoveragePercent="91" />
+        <Method Name="HandleEmptyList():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="HandleMinus(string[]):HashSet&lt;int&gt;" CoveredStatements="11" TotalStatements="11" CoveragePercent="100" />
+        <Method Name="HandleNotEmpty(HashSet&lt;int&gt;,bool,Dictionary&lt;int,int&gt;):bool" CoveredStatements="17" TotalStatements="17" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="16" TotalStatements="16" CoveragePercent="100" />
+          <AnonymousMethod Name="(int):bool" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="HandlePlus(string[]):HashSet&lt;int&gt;" CoveredStatements="24" TotalStatements="24" CoveragePercent="100" />
+        <Method Name="SearchKey(string):List&lt;int&gt;" CoveredStatements="11" TotalStatements="11" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+          <AnonymousMethod Name="(int):bool" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="StartsWithNothing(string):bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <Method Name="StartWithMinusHandler(HashSet&lt;int&gt;,string):HashSet&lt;int&gt;" CoveredStatements="17" TotalStatements="17" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+  </Project>
+  <Project Name="SampleLibrary.Test" CoveredStatements="137" TotalStatements="137" CoveragePercent="100">
+    <Namespace Name="SampleLibrary.Test" CoveredStatements="137" TotalStatements="137" CoveragePercent="100">
+      <Type Name="DataSetTest" CoveredStatements="35" TotalStatements="35" CoveragePercent="100">
+        <Method Name="Equals_Test():void" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+        <Method Name="SetGetNumberOfFiles_Test(int):void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+        <Method Name="Write_NoPreviousRecord():void" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+        <Method Name="Write_WithPreviousRecordOnOtherFile():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="Write_WithPreviousRecordOnSameFile():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+      </Type>
+      <Type Name="FileHandlerTest" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
+        <Method Name="GetFileName_Test(string,string,string):void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+        <Method Name="LoadFiles_GetFileList_Test(string,string[]):void" CoveredStatements="11" TotalStatements="11" CoveragePercent="100" />
+      </Type>
+      <Type Name="IndexTest" CoveredStatements="23" TotalStatements="23" CoveragePercent="100">
+        <Property Name="GenerateData:TheoryData&lt;DataSet&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Property>
+        <Method Name="MakeDataSet_EmptyFolder_ThrowsException():void" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          <AnonymousMethod Name="():DataSet" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="MakeDataSetTest(DataSet):void" CoveredStatements="13" TotalStatements="13" CoveragePercent="100" />
+      </Type>
+      <Type Name="SearchTest" CoveredStatements="61" TotalStatements="61" CoveragePercent="100">
+        <Method Name="GenerateBadData():IEnumerable&lt;object[]&gt;" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():bool" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        </Method>
+        <Method Name="GenerateBareData():IEnumerable&lt;object[]&gt;" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():bool" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+        </Method>
+        <Method Name="GenerateEmptyData():IEnumerable&lt;object[]&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        </Method>
+        <Method Name="GenerateMinusData():IEnumerable&lt;object[]&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        </Method>
+        <Method Name="GeneratePlusBareData():IEnumerable&lt;object[]&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        </Method>
+        <Method Name="GeneratePlusData():IEnumerable&lt;object[]&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+          <InternalCompiledMethod Name="MoveNext():bool" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        </Method>
+        <Method Name="Search_AbsentKeys_Should_Return_Exception(string,int,DataSet,List&lt;int&gt;):void" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <AnonymousMethod Name="():List&lt;int&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="Search_BareWords_Should_Return_True(string,int,DataSet,List&lt;int&gt;):void" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+        <Method Name="SearchKey_Empty_Should_Return_True(string,int,DataSet,List&lt;int&gt;):void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <AnonymousMethod Name="(int):int" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="SearchKey_MinusWords_Should_Returns_True(string,int,DataSet,List&lt;int&gt;):void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <AnonymousMethod Name="(int):int" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="SearchKey_Plus_And_Bare_Should_Return_True(string,int,DataSet,List&lt;int&gt;):void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <AnonymousMethod Name="(int):int" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+        <Method Name="SearchKey_PlusWord_Should_Return_true(string,int,DataSet,List&lt;int&gt;):void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+          <OwnCoverage CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <AnonymousMethod Name="(int):int" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </Method>
+      </Type>
+    </Namespace>
+  </Project>
+</SolutionRoot>
