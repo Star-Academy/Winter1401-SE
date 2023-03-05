@@ -27,5 +27,5 @@ jobs:
               working-directory: src/SampleLibrary
 
             - name: Test
-              run: dotnet test
+              run: dotnet test --no-restore --verbosity d --collect:"XPlat Code Coverage"
               working-directory: src/SampleLibrary
