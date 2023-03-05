@@ -33,7 +33,7 @@ public class FileHandlerTest
         fileHandler.LoadFile(pathToFile);
         
         
-        Assert.Equal(listOfFiles.Order(), fileHandler.GetListOfFiles().Order());
+        Assert.Equal(listOfFiles, fileHandler.GetListOfFiles());
     }
 
 }
