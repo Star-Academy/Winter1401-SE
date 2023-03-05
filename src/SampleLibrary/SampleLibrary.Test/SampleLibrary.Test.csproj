@@ -30,4 +30,13 @@
       <ProjectReference Include="..\SampleLibrary\SampleLibrary.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="TestFolder\.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="TestFolder\a.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
