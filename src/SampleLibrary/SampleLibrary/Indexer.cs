@@ -1,6 +1,5 @@
 ﻿using Iveonik.Stemmers;
 using SampleLibrary.Interfaces;
-using Xunit.Sdk;
 
 namespace SampleLibrary;
 
@@ -34,7 +33,7 @@ public class Indexer: IDataSetMaker
     private void HandleEmptyFolder()
     {
         var output = new ConsoleInput();
-        throw new EmptyException("Entered Directory is Empty!!");
+        throw new Exception("Entered Directory is Empty!!");
     }
 
     private void AddToDataSet(int index, IWriteAble dataSet, string[] listOfTerms)

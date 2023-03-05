@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using NSubstitute;
 using SampleLibrary.Interfaces;
@@ -36,7 +37,7 @@ public class IndexTest
 
         var dataSet = new DataSet();
         var action = () => indexer.MakeDataSet(dataSet);
-        Assert.Throws<EmptyException>(action);
+        Assert.Throws<Exception>(action);
     }
 
     public static TheoryData<DataSet> GenerateData => new()
