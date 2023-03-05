@@ -1,2 +1,2 @@
 # Winter1401-SE
-[![build](https://github.com/Star-Academy/Winter1401-SE/actions/workflows/buildpipelnine.yml/badge.svg)](https://github.com/Star-Academy/Winter1401-SE/actions/workflows/buildpipelnine.yml)
+[![build](https://github.com/Star-Academy/Winter1401-SE/actions/workflows/buildPipeline.yml/badge.svg)](https://github.com/Star-Academy/Winter1401-SE/actions/workflows/buildPipeline.yml)
