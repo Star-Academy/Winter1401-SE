@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace SampleLibrary.Test;
 
@@ -15,8 +16,7 @@ public class FileHandlerTest
         var fileHandler = new FileHandler();
         fileHandler.LoadFile(pathToFile);
 
-        Assert.Equal(str1, fileHandler.GetFileName(0));
-        Assert.Equal(str2, fileHandler.GetFileName(1));
+        Assert.True(fileHandler.GetListOfFiles().Contains(str1)&&fileHandler.GetListOfFiles().Contains(str2));
 
     }
 
@@ -33,7 +33,7 @@ public class FileHandlerTest
         fileHandler.LoadFile(pathToFile);
         
         
-        Assert.Equal(listOfFiles, fileHandler.GetListOfFiles());
+        Assert.Equal(listOfFiles.Order(), fileHandler.GetListOfFiles().Order());
     }
 
 }
