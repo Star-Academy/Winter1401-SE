@@ -33,5 +33,5 @@ jobs:
               uses: codecov/codecov-action@v3
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
-                  files: /home/runner/work/Winter1401-SE/Winter1401-SE/Untitled.xml
+                  files: /home/runner/work/Winter1401-SE/Winter1401-SE/Untitled.json
                   fail_ci_if_error: true
