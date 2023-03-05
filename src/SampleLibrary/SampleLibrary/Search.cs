@@ -75,7 +75,6 @@ public class Search
     private static void HandleEmptyList()
     {
         var output = new ConsoleInput();
-        output.OutPut("key does not exist!");
         throw new KeyNotFoundException("key does not exist!");
     }
 
