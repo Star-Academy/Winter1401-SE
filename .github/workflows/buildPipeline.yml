@@ -37,7 +37,7 @@ jobs:
         #          fail_ci_if_error: true
             - name: Test
               run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
-              working-directory: <path to solution>
+              working-directory: src/SampleLibrary
 
             - name: Publish code coverage reports to codecove.io
               uses: codecov/codecov-action@v1
