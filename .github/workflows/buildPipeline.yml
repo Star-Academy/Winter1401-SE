@@ -26,12 +26,22 @@ jobs:
               run: dotnet build --configuration Release --no-restore
               working-directory: src/SampleLibrary
 
+#            - name: Test
+ #             run: dotnet test --no-restore --verbosity d --collect:"XPlat Code Coverage"
+  #            working-directory: src/SampleLibrary
+   #         - name: Publish code coverage reports to codecove.io
+    #          uses: codecov/codecov-action@v3
+     #         with:
+      #            token: ${{ secrets.CODECOV_TOKEN }}
+       #           files: /home/runner/work/Winter1401-SE/Winter1401-SE/Untitled.xml
+        #          fail_ci_if_error: true
             - name: Test
-              run: dotnet test --no-restore --verbosity d --collect:"XPlat Code Coverage"
-              working-directory: src/SampleLibrary
+              run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
+              working-directory: <path to solution>
+
             - name: Publish code coverage reports to codecove.io
-              uses: codecov/codecov-action@v3
+              uses: codecov/codecov-action@v1
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
-                  files: /home/runner/work/Winter1401-SE/Winter1401-SE/Untitled.xml
+                  files: ./**/coverage.cobertura.xml
                   fail_ci_if_error: true
