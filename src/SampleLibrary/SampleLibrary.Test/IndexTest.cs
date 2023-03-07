@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using NSubstitute;
 using SampleLibrary.Interfaces;
-using Xunit.Sdk;
 
 namespace SampleLibrary.Test;
 
