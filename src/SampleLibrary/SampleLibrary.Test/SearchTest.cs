@@ -2,6 +2,7 @@
 using System.Linq;
 using FluentAssertions;
 
+
 namespace SampleLibrary.Test;
 
 public class SearchTest
@@ -12,16 +13,6 @@ public class SearchTest
           {
               "ali j",
               2,
-              new DataSet()
-              {
-                  Dataset =
-                  {
-                      { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
-                      { "J", new Dictionary<int, int>() { { 0, 1 } } },
-                      { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                      { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                  }
-              },
               new List<int> { 0 }
           };
 
@@ -29,16 +20,6 @@ public class SearchTest
           {
               "ho yo",
               2,
-              new DataSet()
-              {
-                  Dataset =
-                  {
-                      { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
-                      { "J", new Dictionary<int, int>() { { 0, 1 } } },
-                      { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                      { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                  }
-              },
               new List<int> { 1 }
           };
         
@@ -46,78 +27,61 @@ public class SearchTest
         {
             "haji",
             2,
-            new DataSet()
-            {
-                Dataset =
-                {
-                    {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
-                    { "ALI", new Dictionary<int, int>() { { 1, 0 } } },
-                    { "J", new Dictionary<int, int>() { { 1, 0 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
             new List<int> { 0, 1 }
+        };
+        
+        yield return new object[]
+        {
+            "dfhasjflsdjf",
+            2,
+            new List<int> {  }
+        };
+        yield return new object[]
+        {
+            "haji j",
+            2,
+            new List<int> { 0 }
         };
         
     }
     
     [Theory]
     [MemberData(nameof(GenerateBareData))]
-    public void Search_BareWords_Should_Return_True(string key, int numberOfFiles, DataSet dataSet, List<int> expectedResult)
+    public void Search_BareWords_Should_Return_True(string key, int numberOfFiles, List<int> expectedResult)
     {
-        var search = new Search(dataSet);
+        var search = new Search(DataSetGenerator.MakeExampleDataSet());
+        
         var expected = search.SearchKey(key);
         
-        var x = expected.SequenceEqual(expectedResult);
-        x.Should().BeTrue();
+        expected.SequenceEqual(expectedResult).Should().BeTrue();
     }
 
     public static IEnumerable<object[]> GenerateBadData()
     {
         yield return new object[]
         {
-            "haji",
+            "hajij",
             2,
-            new DataSet()
-            {
-                Dataset =
-                {
-                    { "ALI", new Dictionary<int, int>() { { 1, 0 } } },
-                    { "J", new Dictionary<int, int>() { { 1, 0 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
-            new List<int> { 0, 1 }
+            new List<int> {  }
         };
         yield return new object[]
         {
             "haji hello",
             2,
-            new DataSet()
-            {
-                Dataset =
-                {
-                    { "ALI", new Dictionary<int, int>() { { 1, 0 } } },
-                    { "J", new Dictionary<int, int>() { { 1, 0 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
             new List<int> {  }
         };
     }
 
     [Theory]
     [MemberData(nameof(GenerateBadData))]
-    public void Search_AbsentKeys_Should_Return_Exception(string key, int numberOfFiles, DataSet dataSet,
+    public void Search_AbsentKeys_Should_Return_Nothing(string key, int numberOfFiles,
         List<int> expectedResult)
     {
-        var search = new Search(dataSet);
-        var action = () => search.SearchKey(key);
+        var search = new Search(DataSetGenerator.MakeExampleDataSet());
+
+        var actual = search.SearchKey(key);
         
-        Assert.Throws<KeyNotFoundException>(action);
+        actual.SequenceEqual(expectedResult).Should().BeTrue();
     }
     
     public static IEnumerable<object[]> GeneratePlusData()
@@ -126,31 +90,27 @@ public class SearchTest
         {
             "+hello +yo +haji",
             2,
-            new DataSet()
-            {
-                Dataset =
-                {
-                    {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
-                    { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "J", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
             new List<int> { 0, 1 }
+        };  
+        
+        yield return new object[]
+        {
+            "+hello +jfasdkljfklsdj",
+            2,
+            new List<int> {  }
         };  
     }
 
     [Theory]
     [MemberData(nameof(GeneratePlusData))]
-    public void SearchKey_PlusWord_Should_Return_true(string key, int numberOfFiles, DataSet dataSet,
+    public void SearchKey_PlusWord_Should_Return_true(string key, int numberOfFiles,
         List<int> expectedResult)
     {
-        var search = new Search(dataSet);
+        var search = new Search(DataSetGenerator.MakeExampleDataSet());
+        
         var expected = search.SearchKey(key);
         
-        var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
-        x.Should().BeTrue();
+        expected.OrderBy(x=>x).SequenceEqual(expectedResult).Should().BeTrue();
     }
     
     public static IEnumerable<object[]> GenerateMinusData()
@@ -159,31 +119,27 @@ public class SearchTest
         {
             "-yo haji -hello",
             2,
-            new DataSet()
-            {
-                Dataset =
-                {
-                    {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
-                    { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "J", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
             new List<int> { 0 }
+        };
+        
+        yield return new object[]
+        {
+            "-hello",
+            2,
+            new List<int> { 0, 1 }
         };  
     }
 
     [Theory]
     [MemberData(nameof(GenerateMinusData))]
-    public void SearchKey_MinusWords_Should_Returns_True(string key, int numberOfFiles, DataSet dataSet,
+    public void SearchKey_MinusWords_Should_Returns_True(string key, int numberOfFiles,
         List<int> expectedResult)
     {
-        var search = new Search(dataSet);
+        var search = new Search(DataSetGenerator.MakeExampleDataSet());
+        
         var expected = search.SearchKey(key);
         
-        var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
-        x.Should().BeTrue();
+        expected.OrderBy(x=>x).SequenceEqual(expectedResult).Should().BeTrue();
     }
     
     public static IEnumerable<object[]> GenerateEmptyData()
@@ -192,32 +148,20 @@ public class SearchTest
         {
             "",
             2,
-            new DataSet()
-            {
-                NumberOfFiles = 2,
-                Dataset =
-                {
-                    {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
-                    { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "J", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
-            new List<int> { 0 , 1 }
+            new List<int> {  }
         };  
     }
 
     [Theory]
     [MemberData(nameof(GenerateEmptyData))]
-    public void SearchKey_Empty_Should_Return_True(string key, int numberOfFiles, DataSet dataSet,
+    public void SearchKey_Empty_Should_Return_True(string key, int numberOfFiles,
         List<int> expectedResult)
     {
-        var search = new Search(dataSet);
+        var search = new Search(DataSetGenerator.MakeExampleDataSet());
+        
         var expected = search.SearchKey(key);
         
-        var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
-        x.Should().BeTrue();
+        expected.SequenceEqual(expectedResult).Should().BeTrue();
     }
     
     public static IEnumerable<object[]> GeneratePlusBareData()
@@ -226,31 +170,19 @@ public class SearchTest
         {
             "+ali +j haji +yo",
             2,
-            new DataSet()
-            {
-                NumberOfFiles = 2,
-                Dataset =
-                {
-                    {"HAJI", new Dictionary<int, int>(){{0,1},{1, 1}}},
-                    { "ALI", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "J", new Dictionary<int, int>() { { 0, 1 } } },
-                    { "HO", new Dictionary<int, int>() { { 1, 1 } } },
-                    { "YO", new Dictionary<int, int>() { { 1, 1 } } }
-                }
-            },
             new List<int> { 0 , 1 }
         };  
     }
 
     [Theory]
     [MemberData(nameof(GeneratePlusBareData))]
-    public void SearchKey_Plus_And_Bare_Should_Return_True(string key, int numberOfFiles, DataSet dataSet,
+    public void SearchKey_Plus_And_Bare_Should_Return_True(string key, int numberOfFiles,
         List<int> expectedResult)
     {
-        var search = new Search(dataSet);
+        var search = new Search( DataSetGenerator.MakeExampleDataSet());
+        
         var expected = search.SearchKey(key);
         
-        var x = expected.OrderBy(x=>x).SequenceEqual(expectedResult);
-        x.Should().BeTrue();
+        expected.OrderBy(x=>x).SequenceEqual(expectedResult).Should().BeTrue();
     }
 }

@@ -2,5 +2,8 @@
 
 public interface IDataSetMaker
 {
-    public DataSet MakeDataSet(IWriteAble dataSet);
+    public DataSet MakeDataSet();
+
+    public void LoadDirectory(string pathToFile);
+
 }

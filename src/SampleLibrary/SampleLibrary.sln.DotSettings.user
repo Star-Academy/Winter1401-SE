@@ -1,28 +1,48 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
-  &lt;Assembly Path="C:\Users\mahdi.mohammadi\RiderProjects\SampleLibrary\SampleLibrary.Test\bin\Debug\net7.0\SampleLibrary.dll" /&gt;&#xD;
-  &lt;Assembly Path="C:\Users\mahdi.mohammadi\.nuget\packages\bogus\34.0.2\lib\net6.0\Bogus.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\mahdi.mohammadi\AppData\Local\JetBrains\Rider2022.1\resharper-host\temp\Rider\vAny\CoverageData\_SampleLibrary.243694587\Snapshot\snapshot.utdcvr</s:String>
-	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ca669858_002Db31c_002D410f_002Dbaf9_002D9519676d5128/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Solution /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0aedb67a_002D0e79_002D47ef_002D837b_002D7ecca74834a1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MakeDataSetTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest.MakeDataSetTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=10f38f32_002Dff41_002D472d_002Db71a_002D5b32b0116a1c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MakeDataSetTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest.MakeDataSetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.DataSetTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=27d601f3_002D365c_002D4b74_002Da26a_002Dc457fa3f19c4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DataSetTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.DataSetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.SearchTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3385e172_002Da685_002D4785_002D9c37_002Dd8d60633ac22/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SearchKey_Empty_Should_Return_True" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.SearchTest.SearchKey_Empty_Should_Return_True&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.FileHandlerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.DataSetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.SearchTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	</wpf:ResourceDictionary>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a0d5550a_002D9bcc_002D4128_002Da8f5_002D56ed1348b451/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Search_BareWords_Should_Return_True" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.SearchTest.Search_BareWords_Should_Return_True&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.FileHandlerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.DataSetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.SearchTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b2b39683_002D9378_002D442e_002Db1ad_002D91855d73d1b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MakeDataSetTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest.MakeDataSetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.DataSetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.FileHandlerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.IndexTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B8201A48-4055-41F7-85C6-D02FEDC50DF7::net7.0::SampleLibrary.Test.SearchTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

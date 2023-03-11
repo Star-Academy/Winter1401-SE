@@ -7,47 +7,44 @@ public class Manager
     private readonly IOutPut _outPut;
     private readonly IInput _input;
     private readonly IDataSetMaker _dataSetMaker;
-    private readonly IFileAble _fileAble;
-    
-    public Manager(IOutPut outPut, IInput input, IDataSetMaker dataSetMaker, IFileAble fileAble)
+
+    public Manager(IOutPut outPut, IInput input, IDataSetMaker dataSetMaker)
     {
         _outPut = outPut;
         _input = input;
         _dataSetMaker = dataSetMaker;
-        _fileAble = fileAble;
     }
 
     public void Run()
     {
-        GetFolder();
+         var pathToFolder = GetFolderPath();
 
-        var dataSet = MakeDataset();
+         LoadDirectory(pathToFolder);
+
+        var dataSet = _dataSetMaker.MakeDataSet();
 
         var key = GetInputWord();
 
         PrintFinalResult(key, dataSet);
     }
 
-    private DataSet MakeDataset()
-    {
-        
-        return _dataSetMaker.MakeDataSet(new DataSet());
-    }
-
-    private void GetFolder()
+    private string GetFolderPath()
     {
         PrintMessage(_outPut, "Hi\nEnter Directory Path:");
 
-        var pathToFile = InputPath(_input);
-        _fileAble.LoadFile(pathToFile!);
+        return InputPath(_input)!;
+    }
+
+    private void LoadDirectory(string pathToFile)
+    {
+        _dataSetMaker.LoadDirectory(pathToFile);
     }
 
     private string? GetInputWord()
     {
         PrintMessage(_outPut, "Enter input word:");
 
-        var key = InputPath(_input);
-        return key;
+       return InputPath(_input);
     }
 
     private void PrintFinalResult(string? key, IReadAble dataSet)

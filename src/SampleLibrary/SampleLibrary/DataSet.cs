@@ -1,82 +1,50 @@
 ﻿using SampleLibrary.Interfaces;
+using FluentAssertions;
 
 namespace SampleLibrary;
 
 public class DataSet : IReadAble, IWriteAble
 {
-    public Dictionary<string, Dictionary<int, int>> Dataset
-    {
-        set;
-        get;
-    }
-    public int NumberOfFiles { get; set; }
-
+    private readonly HashSet<int> _namesOfFiles;
+    private Dictionary<string, Dictionary<int, int>> _dataset;
     public DataSet()
     {
-        Dataset = new Dictionary<string, Dictionary<int, int>>();
+        _dataset = new Dictionary<string, Dictionary<int, int>>();
+        _namesOfFiles = new HashSet<int>();
     }
-
-    public void SetNumberOfFiles(int size)
+    
+    public List<int> GetFilesNames()
     {
-        NumberOfFiles = size;
-    }
-
-    public int GetNumberOfFiles()
-    {
-        return NumberOfFiles;
+        return _namesOfFiles.ToList();
     }
     
     public void Write(string key, int numberOfCurrentFile)
     {
-        if (!Dataset.ContainsKey(key))
+        _namesOfFiles.Add(numberOfCurrentFile);
+        
+        if (!_dataset.TryGetValue(key, out var countByFiles))
         {
-            var temporary = new Dictionary<int, int>();
-            Dataset.Add(key, temporary);
+            countByFiles = new Dictionary<int, int>();
+            _dataset.Add(key, countByFiles);
         }
-        var countByFiles = Dataset[key];
-        if(!countByFiles.ContainsKey(numberOfCurrentFile)){
+        
+        if(!countByFiles.ContainsKey(numberOfCurrentFile))
+        {
             countByFiles.Add(numberOfCurrentFile, 0);
         }
         countByFiles[numberOfCurrentFile] += 1;
     }
-
-    public Dictionary<int, int> Read(string key)
+    
+    public IEnumerable<int> Read(string key)
     {
-        if (!Dataset.ContainsKey(key))
-            return null;
-        var result = new Dictionary<int, int>();
-        Dataset.TryGetValue(key, out result);
-        return result;
+        if (!_dataset.TryGetValue(key, out var result))
+            return Enumerable.Empty<int>();
+        return result.Keys;
     }
 
-    public bool Equals(DataSet dataSet)
-    {
-        if (Dataset.Count != dataSet.Dataset.Count)
-            return false;
-        foreach (var item in dataSet.Dataset)
-        {
-            if(!Dataset.ContainsKey(item.Key))
-                return false;
-            bool result = AreEqual(item.Value, Dataset[item.Key]);
-            if(result)
-               continue;
-            return false;
-        }
-
-        return true;
-    }
-
-    private bool AreEqual(Dictionary<int, int> first, Dictionary<int, int> second)
-    {
-        if (first.Count != second.Count)
-            return false;
-
-        foreach (var item in first)
-        {
-            if (!(second.ContainsKey(item.Key) && second[item.Key] == item.Value))
-                return false;
-        }
-
-        return true;
-    }
+    // public bool Equals(DataSet dataSet)
+    // {
+    //     if(!_dataset.Keys.ToList().SequenceEqual(dataSet._dataset.Keys.ToList()))
+    //         return false;
+    // }
 }

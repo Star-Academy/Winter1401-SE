@@ -1,6 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
+using FluentAssertions;
 
 namespace SampleLibrary.Test;
 
@@ -11,13 +10,16 @@ public class FileHandlerTest
     public void GetFileName_Test(string pathToFile, string firstFileName, string secondFileName)
     {
 
-        var str1 = pathToFile+$"{Path.DirectorySeparatorChar}"+firstFileName;
-        var str2 = pathToFile+$"{Path.DirectorySeparatorChar}"+secondFileName;
+        firstFileName = pathToFile+$"{Path.DirectorySeparatorChar}"+firstFileName;
+        secondFileName = pathToFile+$"{Path.DirectorySeparatorChar}"+secondFileName;
         var fileHandler = new FileHandler();
         fileHandler.LoadFile(pathToFile);
+        
+        var actualFirstFileName = fileHandler.GetFileName(0);
+        var actualSecondFileName = fileHandler.GetFileName(1);
 
-        Assert.True(fileHandler.GetListOfFiles().Contains(str1)&&fileHandler.GetListOfFiles().Contains(str2));
-
+        actualFirstFileName.Equals(firstFileName).Should().Be(true);
+        actualSecondFileName.Equals(secondFileName).Should().Be(true);
     }
 
     [Theory]
@@ -28,10 +30,9 @@ public class FileHandlerTest
         {
             listOfFiles[i] = pathToFile + $"{Path.DirectorySeparatorChar}" + listOfFiles[i];
         }
-        
         var fileHandler = new FileHandler();
-        fileHandler.LoadFile(pathToFile);
         
+        fileHandler.LoadFile(pathToFile);
         
         Assert.Equal(listOfFiles, fileHandler.GetListOfFiles());
     }

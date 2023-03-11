@@ -2,15 +2,15 @@
 
 namespace SampleLibrary;
 
-public class ConsoleInput : IInput, IOutPut
+public class Console : IInput, IOutPut
 {
     public string? Read()
     {
-        return Console.ReadLine();
+        return System.Console.ReadLine();
     }  
     
     public void OutPut(string output)
     {
-        Console.WriteLine(output);
+        System.Console.WriteLine(output);
     }
 }

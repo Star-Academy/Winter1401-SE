@@ -4,7 +4,7 @@ namespace SampleLibrary.Interfaces;
 
 public interface IReadAble
 {
-    public Dictionary<int, int>? Read(string key);
+    public IEnumerable<int> Read(string key);
 
-    public int GetNumberOfFiles();
+    public List<int> GetFilesNames();
 }

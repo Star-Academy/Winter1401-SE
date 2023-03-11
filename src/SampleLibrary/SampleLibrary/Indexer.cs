@@ -6,44 +6,47 @@ namespace SampleLibrary;
 public class Indexer: IDataSetMaker
 {
     private readonly IFileAble _fileAble;
+    private readonly IWriteAble _dataSet;
+    private readonly IStemmer _stemmer;
 
-    public Indexer(IFileAble fileAble)
+    public Indexer(IFileAble fileAble, IWriteAble dataSet, IStemmer stemmer)
     {
         _fileAble = fileAble;
+        _dataSet = dataSet;
+        _stemmer = stemmer;
     }
-
-    public DataSet MakeDataSet(IWriteAble dataSet)
+    
+    public DataSet MakeDataSet()
     {
-        var isFolderEmpty = true;
-        dataSet.SetNumberOfFiles(_fileAble.GetListOfFiles().Length);
+        HandleEmptyDirectory();
         for (var i = 0; i < _fileAble.GetListOfFiles().Length; i++)
         {
-            isFolderEmpty = false;
             var currentFileTerms = File.ReadAllText(_fileAble.GetFileName(i)).Split(" ");
             if(currentFileTerms.Length==0)
                 continue;
-            AddToDataSet(i, dataSet, currentFileTerms);
+            AddToDataSet(i, currentFileTerms);
         }
-        if (isFolderEmpty)
-            HandleEmptyFolder();
-        var result = (DataSet)dataSet;
-        return result;
+        return (DataSet)_dataSet;
     }
 
-    private void HandleEmptyFolder()
+    private void HandleEmptyDirectory()
     {
-        var output = new ConsoleInput();
-        throw new Exception("Entered Directory is Empty!!");
+        if(_fileAble.GetListOfFiles().Length==0)
+            throw new Exception("Entered Directory is Empty!!");
     }
 
-    private void AddToDataSet(int index, IWriteAble dataSet, string[] listOfTerms)
+    public void LoadDirectory(string pathToDirectory)
     {
-        var englishStemmer = new EnglishStemmer();
+        _fileAble.LoadFile(pathToDirectory);
+    }
+
+    private void AddToDataSet(int index, string[] listOfTerms)
+    {
         foreach (var term in listOfTerms)
         {
-            var modifiedTerm = englishStemmer.Stem(term);
+            var modifiedTerm = _stemmer.Stem(term);
             modifiedTerm = modifiedTerm.ToUpper();
-            dataSet.Write(modifiedTerm, index);
+            _dataSet.Write(modifiedTerm, index);
         }
     }
 }
