@@ -1,4 +1,6 @@
-﻿using SampleLibrary;
+﻿using Iveonik.Stemmers;
+using SampleLibrary;
+using Console = SampleLibrary.Console;
 
 namespace ASP.NET_core_web_application.Controllers;
 
@@ -13,6 +15,6 @@ public class SimpleController : ControllerBase
     public string Get()
     {
         return "Hello world!";
-        new Manager(new ConsoleInput(), new ConsoleInput(), new Indexer(new FileHandler()), new FileHandler()).Run();
+        new Manager(new Console(), new Console(), new Indexer(new FileHandler(), new DataSet(), new EnglishStemmer())).Run();
     }
 }

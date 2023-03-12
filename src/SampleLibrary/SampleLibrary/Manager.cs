@@ -15,7 +15,7 @@ public class Manager
         _dataSetMaker = dataSetMaker;
     }
 
-    public void Run()
+    public IEnumerable<int> Run()
     {
          var pathToFolder = GetFolderPath();
 
@@ -25,7 +25,7 @@ public class Manager
 
         var key = GetInputWord();
 
-        PrintFinalResult(key, dataSet);
+        return new Search(dataSet).SearchKey(key!).ToList();
     }
 
     private string GetFolderPath()
