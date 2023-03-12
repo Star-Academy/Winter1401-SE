@@ -1,6 +1,6 @@
 ﻿namespace SampleLibrary.Test;
 
-public class DataSetGenerator
+public static class DataSetGenerator
 {
     public static DataSet MakeExampleDataSet()
     {

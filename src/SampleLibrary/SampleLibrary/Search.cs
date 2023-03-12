@@ -11,7 +11,7 @@ public class Search
         _dataSet = dataSet;
     }
 
-    public List<int> SearchKey(string key)
+    public IEnumerable<int> SearchKey(string key)
     {
 
         var keys = key.ToUpper().Split(" ");
@@ -22,20 +22,19 @@ public class Search
 
         var keysToDelete = HandleMinus(keys);
 
-        var result = CombineResults(resultFromPlusMethod, resultFromBareMethod);
+        var result = CombineResults(resultFromPlusMethod, resultFromBareMethod).ToList();
 
         result.RemoveAll(x => keysToDelete.Contains(x));
 
         return result;
     }
 
-    private HashSet<int> HandlePlus(string[] keys)
+    private IEnumerable<int> HandlePlus(string[] keys)
     {
         if (!IsPlusEverUsed(keys))
             return _dataSet.GetFilesNames().ToHashSet();
-        var result = new HashSet<int>();
-        keys.ToList().ForEach(x=>result.UnionWith(StartsWithPlusHandler(x)));
-        return result;
+        
+        return keys.SelectMany(StartsWithPlusHandler);
     }
 
     private IEnumerable<int> StartsWithPlusHandler(string key)
@@ -49,7 +48,7 @@ public class Search
         return _dataSet.Read(modifiedKey);
     }
 
-    private HashSet<int> HandleBare(string[] keys)
+    private IEnumerable<int> HandleBare(string[] keys)
     {
         if (!IsBareEverUsed(keys))
             return _dataSet.GetFilesNames().ToHashSet();
@@ -63,26 +62,23 @@ public class Search
             var currentTermFiles = _dataSet.Read(key);
             if (isFirstTime)
             {
-                result = HandleFirstTime(key);
+                result = HandleFirstTime(key).ToHashSet();
                 isFirstTime = false;
             }
             else
-                result.RemoveWhere(x => !currentTermFiles!.Contains(x));
+                result.RemoveWhere(x => !currentTermFiles.Contains(x));
 
         }
         return result;
     }
 
-    private HashSet<int> HandleFirstTime(string key)
+    private IEnumerable<int> HandleFirstTime(string key)
     {
-        var currentTermFiles = _dataSet.Read(key);
-        return currentTermFiles.ToHashSet();
+        return _dataSet.Read(key);
     }
 
-    private HashSet<int> HandleMinus(string[] keys) {
-       var keysToDelete = new HashSet<int>();
-       keys.ToList().ForEach(x=>keysToDelete.UnionWith(StartWithMinusHandler(x)));
-       return keysToDelete;
+    private IEnumerable<int> HandleMinus(string[] keys) {
+        return keys.SelectMany(StartWithMinusHandler);
     }
     private IEnumerable<int> StartWithMinusHandler(string key)
     {
@@ -93,10 +89,10 @@ public class Search
         }
         var modifiedKey = key.Substring(1); 
         var temp = _dataSet.Read(modifiedKey); 
-        return temp.ToHashSet();
+        return temp;
     }
 
-    private List<int> CombineResults(HashSet<int> resultFromPlusMethod, HashSet<int> resultFromBareMethod) {
+    private IEnumerable<int> CombineResults(IEnumerable<int> resultFromPlusMethod, IEnumerable<int> resultFromBareMethod) {
 
         return resultFromBareMethod
             .Where(resultFromPlusMethod.Contains).ToList();

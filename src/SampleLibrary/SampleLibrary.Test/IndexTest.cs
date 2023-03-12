@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using FluentAssertions;
 using Iveonik.Stemmers;
@@ -26,8 +25,11 @@ public class IndexTest
         
         indexer.MakeDataSet();
 
-        // dataSet.Should().BeEquivalentTo(expectedDataset);
-        Assert.True(true);
+        expectedDataset.Read("Haji").Should().BeEquivalentTo(dataSet.Read("Haji"));
+        expectedDataset.Read("Ali").Should().BeEquivalentTo(dataSet.Read("Ali"));
+        expectedDataset.Read("J").Should().BeEquivalentTo(dataSet.Read("J"));
+        expectedDataset.Read("HO").Should().BeEquivalentTo(dataSet.Read("HO"));
+        expectedDataset.Read("YO").Should().BeEquivalentTo(dataSet.Read("YO"));
     }
 
     [Fact]

@@ -1,5 +1,4 @@
 ﻿using SampleLibrary.Interfaces;
-using FluentAssertions;
 
 namespace SampleLibrary;
 
@@ -41,10 +40,4 @@ public class DataSet : IReadAble, IWriteAble
             return Enumerable.Empty<int>();
         return result.Keys;
     }
-
-    // public bool Equals(DataSet dataSet)
-    // {
-    //     if(!_dataset.Keys.ToList().SequenceEqual(dataSet._dataset.Keys.ToList()))
-    //         return false;
-    // }
 }
