@@ -15,15 +15,15 @@ public class Manager
         _dataSetMaker = dataSetMaker;
     }
 
-    public IEnumerable<int> Run()
+    public IEnumerable<int> Run(string pathToFolder, string key)
     {
-         var pathToFolder = GetFolderPath();
+         // var pathToFolder = GetFolderPath();
 
          LoadDirectory(pathToFolder);
 
         var dataSet = _dataSetMaker.MakeDataSet();
 
-        var key = GetInputWord();
+        // var key = GetInputWord();
 
         return new Search(dataSet).SearchKey(key!).ToList();
     }
