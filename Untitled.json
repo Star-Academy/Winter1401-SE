@@ -1,0 +1,765 @@
+﻿{
+  "DotCoverVersion": "2022.1.1",
+  "Kind": "SolutionRoot",
+  "CoveredStatements": 384,
+  "TotalStatements": 439,
+  "CoveragePercent": 87,
+  "Children": [
+    {
+      "Kind": "Project",
+      "Name": "SampleLibrary",
+      "CoveredStatements": 247,
+      "TotalStatements": 302,
+      "CoveragePercent": 82,
+      "Children": [
+        {
+          "Kind": "Namespace",
+          "Name": "SampleLibrary",
+          "CoveredStatements": 247,
+          "TotalStatements": 302,
+          "CoveragePercent": 82,
+          "Children": [
+            {
+              "Kind": "Type",
+              "Name": "ConsoleInput",
+              "CoveredStatements": 0,
+              "TotalStatements": 6,
+              "CoveragePercent": 0,
+              "Children": [
+                {
+                  "Kind": "Method",
+                  "Name": "OutPut(string):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Read():string",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "DataSet",
+              "CoveredStatements": 60,
+              "TotalStatements": 63,
+              "CoveragePercent": 95,
+              "Children": [
+                {
+                  "Kind": "Constructor",
+                  "Name": "DataSet()",
+                  "CoveredStatements": 4,
+                  "TotalStatements": 4,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "Dataset:Dictionary<string,Dictionary<int,int>>",
+                  "CoveredStatements": 2,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "NumberOfFiles:int",
+                  "CoveredStatements": 2,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "AreEqual(Dictionary<int,int>,Dictionary<int,int>):bool",
+                  "CoveredStatements": 12,
+                  "TotalStatements": 13,
+                  "CoveragePercent": 92
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Equals(DataSet):bool",
+                  "CoveredStatements": 14,
+                  "TotalStatements": 16,
+                  "CoveragePercent": 88
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GetNumberOfFiles():int",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Read(string):Dictionary<int,int>",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SetNumberOfFiles(int):void",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Write(string,int):void",
+                  "CoveredStatements": 13,
+                  "TotalStatements": 13,
+                  "CoveragePercent": 100
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "FileHandler",
+              "CoveredStatements": 6,
+              "TotalStatements": 9,
+              "CoveragePercent": 67,
+              "Children": [
+                {
+                  "Kind": "Method",
+                  "Name": "GetFileName(int):string",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GetListOfFiles():string[]",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "LoadFile(string):void",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "Indexer",
+              "CoveredStatements": 36,
+              "TotalStatements": 37,
+              "CoveragePercent": 97,
+              "Children": [
+                {
+                  "Kind": "Constructor",
+                  "Name": "Indexer(IFileAble)",
+                  "CoveredStatements": 4,
+                  "TotalStatements": 4,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "AddToDataSet(int,IWriteAble,string[]):void",
+                  "CoveredStatements": 12,
+                  "TotalStatements": 12,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandleEmptyFolder():void",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "MakeDataSet(IWriteAble):DataSet",
+                  "CoveredStatements": 17,
+                  "TotalStatements": 18,
+                  "CoveragePercent": 94
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "Manager",
+              "CoveredStatements": 0,
+              "TotalStatements": 41,
+              "CoveragePercent": 0,
+              "Children": [
+                {
+                  "Kind": "Constructor",
+                  "Name": "Manager(IOutPut,IInput,IDataSetMaker,IFileAble)",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GetFolder():void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 5,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GetInputWord():string",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 5,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "InputPath(IInput):string",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "MakeDataset():DataSet",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "PrintFinalResult(string,IReadAble):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 9,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "PrintMessage(IOutPut,string):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Run():void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 6,
+                  "CoveragePercent": 0
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "Search",
+              "CoveredStatements": 145,
+              "TotalStatements": 146,
+              "CoveragePercent": 99,
+              "Children": [
+                {
+                  "Kind": "Constructor",
+                  "Name": "Search(IReadAble)",
+                  "CoveredStatements": 4,
+                  "TotalStatements": 4,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "AddAllToResults(int):List<int>",
+                  "CoveredStatements": 10,
+                  "TotalStatements": 10,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "CombineResults(HashSet<int>,HashSet<int>,int):List<int>",
+                  "CoveredStatements": 18,
+                  "TotalStatements": 18,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandleBare(string[]):HashSet<int>",
+                  "CoveredStatements": 17,
+                  "TotalStatements": 17,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandleEachTerm(HashSet<int>,bool,string):bool",
+                  "CoveredStatements": 10,
+                  "TotalStatements": 11,
+                  "CoveragePercent": 91
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandleEmptyList():void",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandleMinus(string[]):HashSet<int>",
+                  "CoveredStatements": 11,
+                  "TotalStatements": 11,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandleNotEmpty(HashSet<int>,bool,Dictionary<int,int>):bool",
+                  "CoveredStatements": 17,
+                  "TotalStatements": 17,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 16,
+                      "TotalStatements": 16,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "(int):bool",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "HandlePlus(string[]):HashSet<int>",
+                  "CoveredStatements": 24,
+                  "TotalStatements": 24,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SearchKey(string):List<int>",
+                  "CoveredStatements": 11,
+                  "TotalStatements": 11,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 10,
+                      "TotalStatements": 10,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "(int):bool",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "StartsWithNothing(string):bool",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "StartWithMinusHandler(HashSet<int>,string):HashSet<int>",
+                  "CoveredStatements": 17,
+                  "TotalStatements": 17,
+                  "CoveragePercent": 100
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Kind": "Project",
+      "Name": "SampleLibrary.Test",
+      "CoveredStatements": 137,
+      "TotalStatements": 137,
+      "CoveragePercent": 100,
+      "Children": [
+        {
+          "Kind": "Namespace",
+          "Name": "SampleLibrary.Test",
+          "CoveredStatements": 137,
+          "TotalStatements": 137,
+          "CoveragePercent": 100,
+          "Children": [
+            {
+              "Kind": "Type",
+              "Name": "DataSetTest",
+              "CoveredStatements": 35,
+              "TotalStatements": 35,
+              "CoveragePercent": 100,
+              "Children": [
+                {
+                  "Kind": "Method",
+                  "Name": "Equals_Test():void",
+                  "CoveredStatements": 10,
+                  "TotalStatements": 10,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SetGetNumberOfFiles_Test(int):void",
+                  "CoveredStatements": 5,
+                  "TotalStatements": 5,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Write_NoPreviousRecord():void",
+                  "CoveredStatements": 6,
+                  "TotalStatements": 6,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Write_WithPreviousRecordOnOtherFile():void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Write_WithPreviousRecordOnSameFile():void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "FileHandlerTest",
+              "CoveredStatements": 18,
+              "TotalStatements": 18,
+              "CoveragePercent": 100,
+              "Children": [
+                {
+                  "Kind": "Method",
+                  "Name": "GetFileName_Test(string,string,string):void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "LoadFiles_GetFileList_Test(string,string[]):void",
+                  "CoveredStatements": 11,
+                  "TotalStatements": 11,
+                  "CoveragePercent": 100
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "IndexTest",
+              "CoveredStatements": 23,
+              "TotalStatements": 23,
+              "CoveragePercent": 100,
+              "Children": [
+                {
+                  "Kind": "Property",
+                  "Name": "GenerateData:TheoryData<DataSet>",
+                  "CoveredStatements": 1,
+                  "TotalStatements": 1,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "MakeDataSet_EmptyFolder_ThrowsException():void",
+                  "CoveredStatements": 9,
+                  "TotalStatements": 9,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 8,
+                      "TotalStatements": 8,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "():DataSet",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "MakeDataSetTest(DataSet):void",
+                  "CoveredStatements": 13,
+                  "TotalStatements": 13,
+                  "CoveragePercent": 100
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "SearchTest",
+              "CoveredStatements": 61,
+              "TotalStatements": 61,
+              "CoveragePercent": 100,
+              "Children": [
+                {
+                  "Kind": "Method",
+                  "Name": "GenerateBadData():IEnumerable<object[]>",
+                  "CoveredStatements": 4,
+                  "TotalStatements": 4,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "InternalCompiledMethod",
+                      "Name": "MoveNext():bool",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GenerateBareData():IEnumerable<object[]>",
+                  "CoveredStatements": 5,
+                  "TotalStatements": 5,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "InternalCompiledMethod",
+                      "Name": "MoveNext():bool",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GenerateEmptyData():IEnumerable<object[]>",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "InternalCompiledMethod",
+                      "Name": "MoveNext():bool",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GenerateMinusData():IEnumerable<object[]>",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "InternalCompiledMethod",
+                      "Name": "MoveNext():bool",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GeneratePlusBareData():IEnumerable<object[]>",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "InternalCompiledMethod",
+                      "Name": "MoveNext():bool",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "GeneratePlusData():IEnumerable<object[]>",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "InternalCompiledMethod",
+                      "Name": "MoveNext():bool",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Search_AbsentKeys_Should_Return_Exception(string,int,DataSet,List<int>):void",
+                  "CoveredStatements": 6,
+                  "TotalStatements": 6,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "():List<int>",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "Search_BareWords_Should_Return_True(string,int,DataSet,List<int>):void",
+                  "CoveredStatements": 6,
+                  "TotalStatements": 6,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SearchKey_Empty_Should_Return_True(string,int,DataSet,List<int>):void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "(int):int",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SearchKey_MinusWords_Should_Returns_True(string,int,DataSet,List<int>):void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "(int):int",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SearchKey_Plus_And_Bare_Should_Return_True(string,int,DataSet,List<int>):void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "(int):int",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "SearchKey_PlusWord_Should_Return_true(string,int,DataSet,List<int>):void",
+                  "CoveredStatements": 7,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "OwnCoverage",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AnonymousMethod",
+                      "Name": "(int):int",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
