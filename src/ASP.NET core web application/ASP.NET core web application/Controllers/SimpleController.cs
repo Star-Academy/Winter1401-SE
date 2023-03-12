@@ -12,9 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 public class SimpleController : ControllerBase
 {
     [HttpGet]
-    public string Get()
+    public List<int> Get()
     {
-        return "Hello world!";
-        new Manager(new Console(), new Console(), new Indexer(new FileHandler(), new DataSet(), new EnglishStemmer())).Run();
+        return new Manager(new Console(), new Console(), new Indexer(new FileHandler(), new DataSet(), new EnglishStemmer())).Run().ToList();
     }
 }
