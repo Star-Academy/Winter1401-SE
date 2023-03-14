@@ -14,6 +14,6 @@ public class SimpleController : ControllerBase
     [HttpGet]
     public List<int> Get(string path, string key)
     {
-        return new Manager(new Console(), new Console(), new Indexer(new FileHandler(), new DataSet(), new EnglishStemmer())).Run(path, key).ToList();
+        return new Manager(new Console(), new Indexer(new FileHandler(), new DataSet(), new EnglishStemmer())).Run(path, key).ToList();
     }
 }
