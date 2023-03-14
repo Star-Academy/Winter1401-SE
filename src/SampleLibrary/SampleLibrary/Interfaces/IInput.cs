@@ -1,6 +1,8 @@
 ﻿namespace SampleLibrary.Interfaces;
 
-public interface IInput
+public interface IInputOutput
 {
     public string? Read();
+    
+    public void OutPut(string stringToPrint);
 }

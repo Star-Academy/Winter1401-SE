@@ -4,14 +4,12 @@ namespace SampleLibrary;
 
 public class Manager
 {
-    private readonly IOutPut _outPut;
-    private readonly IInput _input;
+    private readonly IInputOutput _inputOutput;
     private readonly IDataSetMaker _dataSetMaker;
 
-    public Manager(IOutPut outPut, IInput input, IDataSetMaker dataSetMaker)
+    public Manager(IInputOutput inputOutput, IDataSetMaker dataSetMaker)
     {
-        _outPut = outPut;
-        _input = input;
+        _inputOutput = inputOutput;
         _dataSetMaker = dataSetMaker;
     }
 
@@ -30,9 +28,9 @@ public class Manager
 
     private string GetFolderPath()
     {
-        PrintMessage(_outPut, "Hi\nEnter Directory Path:");
+        PrintMessage(_inputOutput, "Hi\nEnter Directory Path:");
 
-        return InputPath(_input)!;
+        return InputPath(_inputOutput)!;
     }
 
     private void LoadDirectory(string pathToFile)
@@ -42,25 +40,25 @@ public class Manager
 
     private string? GetInputWord()
     {
-        PrintMessage(_outPut, "Enter input word:");
+        PrintMessage(_inputOutput, "Enter input word:");
 
-       return InputPath(_input);
+       return InputPath(_inputOutput);
     }
 
     private void PrintFinalResult(string? key, IReadAble dataSet)
     {
         foreach (var item in new Search(dataSet).SearchKey(key!))
         {
-            PrintMessage(_outPut, item.ToString());
+            PrintMessage(_inputOutput, item.ToString());
         }
     }
 
-    private void PrintMessage(IOutPut output, string outPutMessage)
+    private void PrintMessage(IInputOutput output, string outPutMessage)
     {
         output.OutPut(outPutMessage);
     }
 
-    private string? InputPath(IInput input)
+    private string? InputPath(IInputOutput input)
     {
         return input.Read();
     }

@@ -2,7 +2,7 @@
 
 namespace SampleLibrary;
 
-public class Console : IInput, IOutPut
+public class Console : IInputOutput
 {
     public string? Read()
     {
